@@ -1,2 +1,5 @@
 # CSS example file
 style/simple.css
+
+# JSON data files
+data/*
