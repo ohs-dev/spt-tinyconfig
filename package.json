@@ -1,0 +1,23 @@
+{
+  "name": "spt-tinyconfig",
+  "version": "1.0.0",
+  "description": "Easy script helper",
+  "keywords": [
+    "SPT"
+  ],
+  "homepage": "https://github.com/ohs-dev/spt-tinyconfig#readme",
+  "bugs": {
+    "url": "https://github.com/ohs-dev/spt-tinyconfig/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohs-dev/spt-tinyconfig.git"
+  },
+  "license": "ISC",
+  "author": "ohs-dev",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
