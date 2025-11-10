@@ -1,3 +1,6 @@
+# Modules
+node_modules/*
+
 # CSS example file
 style/simple.css
 
