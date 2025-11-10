@@ -1,8 +1,8 @@
 import process from 'node:process';
 import * as fs from 'node:fs';
-import botList from './data/app_data/roster.json' with { type: "json" };
-import mapList from './data/app_data/maps.json' with { type: "json" };
-import traderList from './data/app_data/traders.json' with { type: "json" };
+import botList from './data/app/roster.json' with { type: "json" };
+import mapList from './data/app/maps.json' with { type: "json" };
+import traderList from './data/app/traders.json' with { type: "json" };
 
 /* const botList = require("data/app_data/roster.json");
 const mapList = require("data/app_data/maps.json");

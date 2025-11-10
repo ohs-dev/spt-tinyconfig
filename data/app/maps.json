@@ -1,0 +1,15 @@
+{
+  "path": "data/SPT_Data/Server/database/locations",
+  "customs": "bigmap",
+  "woods": "woods",
+  "factory_day": "factory4_day",
+  "factory_night": "factory4_night",
+  "groundzero": "sandbox",
+  "interchange": "interchange",
+  "labs": "laboratory",
+  "lighthouse": "lighthouse",
+  "reserve": "rezervbase",
+  "shoreline": "shoreline",
+  "streets": "tarkovstreets",
+  "terminal": "terminal"
+}

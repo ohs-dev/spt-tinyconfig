@@ -1,0 +1,175 @@
+{
+  "path": "data/SPT_Data/database/bots/types",
+  "assault": {
+    "name": "scav",
+    "role": "scav"
+  },
+  "arenafighter": {
+    "name": "arena scav",
+    "role": "scav"
+  },
+  "arenafighterevent": {
+    "name": "arena scav 2",
+    "role": "scav"
+  },
+  "bear": {
+    "name": "bear",
+    "role": "pmc"
+  },
+  "bossboar": {
+    "name": "kaban",
+    "role": "boss"
+  },
+  "bossboarsniper": {
+    "name": "",
+    "role": "follower"
+  },
+  "bossbully": {
+    "name": "reshala",
+    "role": "boss"
+  },
+  "bossgluhar": {
+    "name": "gluhkar",
+    "role": "boss"
+  },
+  "bosskilla": {
+    "name": "killa",
+    "role": "boss"
+  },
+  "bossknight": {
+    "name": "knigt",
+    "role": "boss"
+  },
+  "bosskojaniy": {
+    "name": "shturman",
+    "role": "boss"
+  },
+  "bosskolontay": {
+    "name": "kolontay",
+    "role": "boss"
+  },
+  "bosspartisan": {
+    "name": "partizan",
+    "role": "boss"
+  },
+  "bosssanitar": {
+    "name": "sanitar",
+    "role": "boss"
+  },
+  "bosstagilla": {
+    "name": "tagilla",
+    "role": "boss"
+  },
+  "bosszryachiy": {
+    "name": "zryachiy",
+    "role": "boss"
+  },
+  "exusec": {
+    "name": "rogue",
+    "role": "raider"
+  },
+  "followerbigpipe": {
+    "name": "big pipe",
+    "role": "follower"
+  },
+  "followerbirdeye": {
+    "name": "birdeye",
+    "role": "follower"
+  },
+  "followerboar": {
+    "name": "",
+    "role": "follower"
+  },
+  "followerboarclose1": {
+    "name": "",
+    "role": "follower"
+  },
+  "followerboarclose2": {
+    "name": "",
+    "role": "follower"
+  },
+  "followerbully": {
+    "name": "",
+    "role": "follower"
+  },
+  "followergluharassault": {
+    "name": "",
+    "role": "follower"
+  },
+  "followergluharscout": {
+    "name": "",
+    "role": "follower"
+  },
+  "followergluharsecurity": {
+    "name": "",
+    "role": "follower"
+  },
+  "followergluharsnipe": {
+    "name": "",
+    "role": "follower"
+  },
+  "followerkojaniy": {
+    "name": "",
+    "role": "follower"
+  },
+  "followerkolontayassault": {
+    "name": "",
+    "role": "follower"
+  },
+  "followerkolontaysecurity": {
+    "name": "",
+    "role": "follower"
+  },
+  "followersanitar": {
+    "name": "",
+    "role": "follower"
+  },
+  "followertagilla": {
+    "name": "",
+    "role": "follower"
+  },
+  "followerzryachiy": {
+    "name": "",
+    "role": "follower"
+  },
+  "pmcbear": {
+    "name": "",
+    "role": "raider"
+  },
+  "pmcbot": {
+    "name": "raider",
+    "role": "raider"
+  },
+  "pmcusec": {
+    "name": "",
+    "role": "raider"
+  },
+  "marksman": {
+    "name": "marksman",
+    "role": "marksman"
+  },
+  "sectantoni": {
+    "name": "cultist oni",
+    "role": "cultist"
+  },
+  "sectantpredvestnik": {
+    "name": "cultist predvestnik",
+    "role": "cultist"
+  },
+  "sectantpriest": {
+    "name": "cultist priest",
+    "role": "cultist"
+  },
+  "sectantprizrak": {
+    "name": "culstist prizrak",
+    "role": "cultist"
+  },
+  "sectantwarrior": {
+    "name": "cultist",
+    "role": "cultist"
+  },
+  "usec": {
+    "name": "usec",
+    "role": "pmc"
+  }
+}

@@ -5,4 +5,4 @@ node_modules/*
 style/simple.css
 
 # JSON data files
-data/*
+data/SPT_Data/*
