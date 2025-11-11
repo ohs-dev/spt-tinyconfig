@@ -4,41 +4,59 @@ import botList from './data/app/roster.json' with { type: "json" };
 import mapList from './data/app/maps.json' with { type: "json" };
 import traderList from './data/app/traders.json' with { type: "json" };
 
-/* const botList = require("data/app_data/roster.json");
-const mapList = require("data/app_data/maps.json");
-const traderList = require("data/app_data/traders.json"); */
-
-const env_info = {
+// environment variables
+const e = {
   id: process.title,
-  args: [...process.argv],
+  args: process.argv,
   path: process.cwd(),
   bots: Object.keys(botList).slice(1, Object.keys(botList).length - 1), // get all array items except [0]
   maps: mapList,
   traders: traderList,
 };
 
-if (!env_info.args.length > 0) {
-  console.log("usage: <target_file> <key> <val>");
+const flags = [
+  "b", // backup
+  "n", // update
+  "v" // value
+];
+
+//   data/SPT_Data/Server/database/traders/6617beeaa9cfa777ca915b7c/base.json
+//   data\SPT_Data\Server\database\globals.json
+
+if (e.args.length == "2") {
+  console.log("usage: [OPTIONS]...  FILE...  CHANGES...");
+  console.log("Updates json keys and values.");
   process.exit(1);
 }
 
 try {
 
-  console.log(env_info.args[0]);
-  // $ node index.js x y z
-  console.log(env_info.args[1]);
-  // C:\Users\Oliver\Dev\Tools\nvm\v24.11.0\node.exe
-  console.log(env_info.args[2]);
-  // C:\users\oliver\dev\src\web\spt-tinyconfig\index.js
+  // check for flags
+  for (let i = 0; i < e.args.length - 1; i++) {
+    switch (e.args[i]) {
+      case "-b":
+        // backup source file as:
+        const bName = e.args[i + 1];
+        console.log("backup file name: ", bkupFile);
+        //backup(bName);
+        break;
+      case "-n":
+        // create a new file
+        const newFile = e.args[i + 1];
+        //new(newFile);
+        break;
+      case "-v":
+        // verbose
+        // nologs();
+        break;
+    }
+  }
+  
 
-  console.log(env_info.bots);
+  let u = 0;
+  console.log("updates: ", u);
 
-  //console.log(process.argv);
-
-  //const jsonFile = JSON.parse(fs.readFileSync(env_info.args(1)));
 } catch (error) {
   console.log(error);
   process.exit(1);
 }
-//console.log(env_info.bots['bear'].role);
-//const fPath = "data/SPT_Data/Server/database/bots/types";

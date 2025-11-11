@@ -1,14 +1,49 @@
 {
-  "path": "",
-  "names": [
-    "prapor",
-    "therapist",
-    "skier",
-    "peacekeeper",
-    "lightkeeper",
-    "mechanic",
-    "jaeger",
-    "btr driver",
-    "ref"
-  ]
+  "prapor": {
+    "id": "54cb50c76803fa8b248b4571",
+    "path": "data/SPT_Data/Server/database/traders/54cb50c76803fa8b248b4571/base.json"
+  },
+  "therapist": {
+    "id": "54cb57776803fa99248b456e",
+    "path": "data/SPT_Data/Server/database/traders/54cb57776803fa99248b456e/base.json"
+  },
+  "fence": {
+    "id": "579dc571d53a0658a154fbec",
+    "path": "data/SPT_Data/Server/database/traders/579dc571d53a0658a154fbec/base.json"
+  },
+  "peacekeeper": {
+    "id": "5935c25fb3acc3127c3d8cd9",
+    "path": "data/SPT_Data/Server/database/traders/5935c25fb3acc3127c3d8cd9/base.json"
+  },
+  "mechanic": {
+    "id": "5a7c2eca46aef81a7ca2145d",
+    "path": "data/SPT_Data/Server/database/traders/5a7c2eca46aef81a7ca2145d/base.json"
+  },
+  "skier": {
+    "id": "58330581ace78e27b8b10cee",
+    "path": "data/SPT_Data/Server/database/traders/58330581ace78e27b8b10cee/base.json"
+  },
+  "ragman": {
+    "id": "5ac3b934156ae10c4430e83c",
+    "path": "data/SPT_Data/Server/database/traders/5ac3b934156ae10c4430e83c/base.json"
+  },
+  "jaeger": {
+    "id": "5c0647fdd443bc2504c2d371",
+    "path": "data/SPT_Data/Server/database/traders/5c0647fdd443bc2504c2d371/base.json"
+  },
+  "ref": {
+    "id": "6617beeaa9cfa777ca915b7c",
+    "path": "data/SPT_Data/Server/database/traders/6617beeaa9cfa777ca915b7c/base.json",
+    "alias": "Arena"
+  },
+  "lightkeeper": {
+    "id": "638f541a29ffd1183d187f57",
+    "path": "data/SPT_Data/Server/database/traders/638f541a29ffd1183d187f57/base.json",
+    "alias": "caretaker"
+  },
+  "btrdriver": {
+    "id": "656f0f98d80a697f855d34b1",
+    "path": "data/SPT_Data/Server/database/traders/656f0f98d80a697f855d34b1/base.json",
+    "alias": "APC"
+  }
 }

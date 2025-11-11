@@ -1,25 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <title>SPT-TinyConfig</title>
-    <!-- Simple CSS (unminified) -->
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
-  </head>
-  <body>
-    <header>
-      <h1>Hello, world</h1>
-      <p>Welcome to my website!</p>
-    </header>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>SPT-TinyConfig</title>
+  <!-- Simple CSS (unminified) -->
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+  <link rel="stylesheet" href="/style/index.css">
+</head>
+
+<body>
+  <header>
+    <div class="container row"></div>
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="title"></div>
+    </div>
+    <div class="row">
+      <button class="btn secondary" id="saveBtn"
+        title="Save local file"><span>Save</span></button>
+      <button class="btn secondary" id="loadBtn"
+        title="Open data file"><span>Load</span></button>
+      <input type="file" id="openFile" accept="application/json" hidden>
+    </div>
+
+  </header>
 
   <main>
-    <p>This is my new website and it's using Simple.css. It's really cool. If you want to use it too, you can <a href="https://simplecss.org">visit their site</a>.</p>
+    <p>This is my new website and it's using Simple.css. It's really cool. If
+      you want to use it too, you can <a href="https://simplecss.org">visit
+        their site</a>.</p>
+
+    <p>Accordion example
+    <details>
+      <summary>Interesting Object</summary>
+      <p>Info about the object</p>
+
+      <code>body {
+            color: var(--text);
+            background: var(--bg);
+            font-size: 1.15rem;
+            line-height: 1.5;
+            margin: 0;
+          }</code>
+
+    </details>
+    </p>
   </main>
+
+  <div class="list">
+    <ul>
+
+    </ul>
+  </div>
 
   <footer>
     <p>Jane Smith's website.</p>
   </footer>
-  </body>
-  <script src="main.js"></script>
+</body>
+<script>
+  const listEl = document.querySelector('ul');
+  const t_map = new Map();
+
+  fetch('data/app/traders.json')
+    .then(res => res.json())
+    .then(resJson => {
+
+      // Build collection of objects in a trader Map and display page
+      Object.keys(resJson).forEach(key => {
+        if (resJson.hasOwnProperty(key)) {
+
+          // add to trader array
+          t_map.set(key, resJson[key]);
+
+          // display as html element (p)
+          listEl.insertAdjacentHTML('beforeend', `<p>${key}</p>`);
+          listEl.insertAdjacentHTML('beforeend', `<p><pre>${JSON.stringify(resJson[key], null, 2)}</pre></p>`);
+
+          //console.log(key);
+          //console.log(t_map.size);
+          listEl.insertAdjacentHTML('beforeend', `<p>${JSON.stringify(t_map.get(key))}</p>`);
+
+          // loop through object sub-properties
+          /* Object.keys(sub_k).forEach(prop => {
+            if (sub_k.hasOwnProperty(prop)) {
+              listEl.insertAdjacentHTML('beforeend', `< p > ${ prop } : ${ sub_k[prop]}</p >`);
+            }
+          }); */
+
+        }
+      });
+      console.log(t_map.entries());
+    });
+
+    
+  function mapProps(obj) {
+    Object.keys(obj).forEach(key => {
+      if (obj.hasOwnProperty(key)) {
+
+      }
+    });
+  }
+</script>
+
 </html>
