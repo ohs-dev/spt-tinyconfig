@@ -6,17 +6,19 @@
   <meta charset="utf-8" />
   <title>SPT-TinyConfig</title>
   <!-- Simple CSS (unminified) -->
-  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+  <!-- <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css"> -->
   <link rel="stylesheet" href="/style/index.css">
 </head>
 
 <body>
   <header>
+
     <div class="container row"></div>
     <div class="brand">
-      <div class="logo"></div>
-      <div class="title"></div>
+      <div class="logo">Logo Image</div>
+      <div class="title">Title</div>
     </div>
+
     <div class="row">
       <button class="btn secondary" id="saveBtn"
         title="Save local file"><span>Save</span></button>
@@ -25,19 +27,57 @@
       <input type="file" id="openFile" accept="application/json" hidden>
     </div>
 
+    <div class="history">
+      <details>
+        <summary>History</summary>
+        <p>C:\user\johnS\documents\example.json</p>
+      </details>
+    </div>
   </header>
 
   <main>
-    <p>This is my new website and it's using Simple.css. It's really cool. If
-      you want to use it too, you can <a href="https://simplecss.org">visit
-        their site</a>.</p>
 
-    <p>Accordion example
-    <details>
-      <summary>Interesting Object</summary>
-      <p>Info about the object</p>
+    <aside class="card panel stack">
 
-      <code>body {
+      <div class="stack">
+        <h2>Links for navigation</h2>
+        <ul>
+          <li>Global Settings</li>
+          <li>User Profile</li>
+          <li>Bot Settings</li>
+          <li>Loot (Map) Settings</li>
+          <li>Trader Settings</li>
+        </ul>
+        <label for="testArea">Test area (Javascript only - optional)</label>
+        <textarea id="testArea" class="text"
+          placeholder="Write simple test to application"></textarea>
+      </div>
+
+      <div class="muted">
+        Tip: <span class="kbd">Ctrl</span> + <span class="kbd">S</span> to save,
+        <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> to run.
+      </div>
+
+      <div class="treeBrowser">
+        <pre><code>-> Globals
+  -> Health
+    -> Head HP</code></pre>
+      </div>
+    </aside>
+
+    <section class="content">
+      <h3>Main Section</h3>
+
+      <p>This is my new website and it's using Simple.css. It's really cool. If
+        you want to use it too, you can <a href="https://simplecss.org">visit
+          their site</a>.</p>
+
+      <p>Accordion example
+      <details>
+        <summary>Interesting Object</summary>
+        <p>Info about the object</p>
+
+        <code>body {
             color: var(--text);
             background: var(--bg);
             font-size: 1.15rem;
@@ -45,23 +85,24 @@
             margin: 0;
           }</code>
 
-    </details>
-    </p>
+      </details>
+      </p>
+      <div class="list"></div>
+      <div class="objectEditor">No object selected, open json file.</div>
+    </section>
   </main>
 
-  <div class="list">
-    <ul>
-
-    </ul>
-  </div>
-
   <footer>
-    <p>Jane Smith's website.</p>
+    <p>Created by: ohs-dev<br>
+      Source: <a
+        href="https://github.com/ohs-dev/spt-config.git">https://github.com/ohs-dev/spt-config.git</a>
+    </p>
   </footer>
 </body>
 <script>
-  const listEl = document.querySelector('ul');
   const t_map = new Map();
+  const listEl = document.querySelector('section');
+
 
   fetch('data/app/traders.json')
     .then(res => res.json())
@@ -78,10 +119,6 @@
           listEl.insertAdjacentHTML('beforeend', `<p>${key}</p>`);
           listEl.insertAdjacentHTML('beforeend', `<p><pre>${JSON.stringify(resJson[key], null, 2)}</pre></p>`);
 
-          //console.log(key);
-          //console.log(t_map.size);
-          listEl.insertAdjacentHTML('beforeend', `<p>${JSON.stringify(t_map.get(key))}</p>`);
-
           // loop through object sub-properties
           /* Object.keys(sub_k).forEach(prop => {
             if (sub_k.hasOwnProperty(prop)) {
@@ -94,7 +131,7 @@
       console.log(t_map.entries());
     });
 
-    
+
   function mapProps(obj) {
     Object.keys(obj).forEach(key => {
       if (obj.hasOwnProperty(key)) {
