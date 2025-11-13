@@ -1,15 +1,1025 @@
 {
-  "path": "data/SPT_Data/Server/database/locations",
-  "customs": "bigmap",
-  "woods": "woods",
-  "factory_day": "factory4_day",
-  "factory_night": "factory4_night",
-  "groundzero": "sandbox",
-  "interchange": "interchange",
-  "labs": "laboratory",
-  "lighthouse": "lighthouse",
-  "reserve": "rezervbase",
-  "shoreline": "shoreline",
-  "streets": "tarkovstreets",
-  "terminal": "terminal"
+  "locations": [
+    "bigmap",
+    "woods",
+    "factory_day",
+    "factory_night",
+    "sandbox",
+    "interchange",
+    "laboratory",
+    "lighthouse",
+    "reservbase",
+    "shoreline",
+    "tarkovstreets"
+  ],
+  "mapdetails": [
+    {
+      "bigmap": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "woods": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "factory_day": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "factory_night": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "groundzero": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "interchange": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "labs": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "lighthouse": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "reserve": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "shoreline": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "streets": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    },
+    {
+      "terminal": {
+        "name": "customs",
+        "AirdropParameters": {
+          "PlaneAirdropChance": 0.2,
+          "PlaneAirdropStartMax": 900,
+          "PlaneAirdropStartMin": 300
+        },
+        "BossLocationSpawn": [
+          {
+            "BossChance": 20,
+            "BossDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "bossPartisan",
+            "DependKarma": true
+          },
+          {
+            "BossChance": 30,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "2",
+            "BossEscortDifficult": "normal",
+            "BossName": "bossKnight",
+            "BossZone": "ZoneScavBase",
+            "Supports": [
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBigPipe"
+              },
+              {
+                "BossEscortAmount": "1",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerBirdEye"
+              },
+              {
+                "BossEscortAmount": "0",
+                "BossEscortDifficult": [
+                  "normal"
+                ],
+                "BossEscortType": "followerGluharScout"
+              }
+            ]
+          },
+          {
+            "BossChance": 70,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "followerBully",
+            "BossName": "bossBully",
+            "BossZone": "ZoneDormitory,ZoneGasStation,ZoneScavBase"
+          },
+          {
+            "BossChance": 50,
+            "BossDifficult": "normal",
+            "BossEscortAmount": "4",
+            "BossEscortDifficult": "normal",
+            "BossEscortType": "sectantWarrior",
+            "BossName": "sectantPriest",
+            "BossZone": "ZoneScavBase"
+          }
+        ],
+        "BotLocationModifier": {
+          "AccuracySpeed": 1,
+          "GainSight": 1,
+          "Scattering": 1,
+          "VisibleDistance": 1
+        },
+        "EscapeTimeLimit": 60,
+        "EscapeTimeLimitCoop": 45,
+        "EscapeTimeLimitPVE": 60,
+        "GlobalContainerChanceModifier": 2.5,
+        "GlobalLootChanceModifier": 2.4,
+        "GlobalLootChanceModifierPvE": 2.9,
+        "exits": [],
+        "SecretExits": [],
+        "transits": [],
+        "waves": []
+      }
+    }
+  ]
 }
