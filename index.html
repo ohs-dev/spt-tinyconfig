@@ -13,25 +13,33 @@
 <body>
   <header>
 
-    <div class="container row"></div>
-    <div class="brand">
-      <div class="logo">Logo Image</div>
-      <div class="title">Title</div>
-    </div>
+    <div class="container row">
+      <!-- <div class="logo">
+        
+      </div> -->
+      <div class="brand">
+        <img src="data/app/images/icon.ico" height="48px" width="48px"
+          alt="spt" />
+        <h4>Single Player Tarkov</h4>
+      </div>
 
-    <div class="row">
-      <button class="btn secondary" id="saveBtn"
-        title="Save local file"><span>Save</span></button>
-      <button class="btn secondary" id="loadBtn"
-        title="Open data file"><span>Load</span></button>
-      <input type="file" id="openFile" accept="application/json" hidden>
-    </div>
+      <div class="title">
+        <h4>SPTarkov easy profile editor</h4>
+      </div>
 
-    <div class="history">
-      <details>
-        <summary>History</summary>
-        <p>C:\user\johnS\documents\example.json</p>
-      </details>
+      <div class="buttons">
+        <div class="history">
+          <details>
+            <summary>History</summary>
+            <p>C:\user\johnS\documents\example.json</p>
+          </details>
+        </div>
+        <button class="btn secondary" id="saveBtn"
+          title="Save local file"><span>Save</span></button>
+        <button class="btn secondary" id="loadBtn" title="Open data file"
+          onclick="openTest()"><span>Load</span></button>
+        <input type="file" id="openFile" accept="application/json" hidden>
+      </div>
     </div>
   </header>
 
@@ -40,7 +48,7 @@
     <aside class="card panel stack">
 
       <div class="stack">
-        <h2>Links for navigation</h2>
+        <h1>Links for navigation</h1>
         <ul>
           <li>Global Settings</li>
           <li>User Profile</li>
@@ -66,17 +74,13 @@
     </aside>
 
     <section class="content">
-      <h3>Main Section</h3>
-
-      <p>This is my new website and it's using Simple.css. It's really cool. If
-        you want to use it too, you can <a href="https://simplecss.org">visit
+      <h1>Main Section</h1>
+      <p>This is a website. It's really cool. <a
+          href="https://simplecss.org">visit
           their site</a>.</p>
-
-      <p>Accordion example
       <details>
         <summary>Interesting Object</summary>
         <p>Info about the object</p>
-
         <code>body {
             color: var(--text);
             background: var(--bg);
@@ -84,11 +88,9 @@
             line-height: 1.5;
             margin: 0;
           }</code>
-
       </details>
-      </p>
-      <div class="list"></div>
-      <div class="objectEditor">No object selected, open json file.</div>
+      <!-- <div class="objectEditor">No object selected, open json file.</div> -->
+      <!-- <div class="list"></div> -->
     </section>
   </main>
 
@@ -100,8 +102,8 @@
   </footer>
 </body>
 <script>
-  const t_map = new Map();
-  const listEl = document.querySelector('section');
+  /* const t_map = new Map();
+  const section = document.querySelector('section');
 
 
   fetch('data/app/traders.json')
@@ -116,21 +118,60 @@
           t_map.set(key, resJson[key]);
 
           // display as html element (p)
-          listEl.insertAdjacentHTML('beforeend', `<p>${key}</p>`);
-          listEl.insertAdjacentHTML('beforeend', `<p><pre>${JSON.stringify(resJson[key], null, 2)}</pre></p>`);
+          section.insertAdjacentHTML('beforeend', `${key}`);
+          section.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(resJson[key], null, 2)}</pre>`);
 
           // loop through object sub-properties
-          /* Object.keys(sub_k).forEach(prop => {
-            if (sub_k.hasOwnProperty(prop)) {
-              listEl.insertAdjacentHTML('beforeend', `< p > ${ prop } : ${ sub_k[prop]}</p >`);
-            }
-          }); */
+          //Object.keys(sub_k).forEach(prop => {
+          //  if (sub_k.hasOwnProperty(prop)) {
+          //    section.insertAdjacentHTML('beforeend', `< p > ${ prop } : ${ sub_k[prop]}</p >`);
+          //  }
+          //});
 
         }
       });
       console.log(t_map.entries());
-    });
+    }); */
 
+  function openTest() {
+    const fName = "data/app/bot_details.json";
+    const t_map = new Map();
+
+    const section = document.querySelector('section');
+    const sec_details = document.querySelector('section').querySelector('details');
+    const sec_last = section.lastElementChild;
+
+    sec_last.innerHTML = "<summary>test</summary>";
+
+
+    //const lastEl = section.lastElementChild;
+
+    //console.log(sec_details);
+    //console.log(lastEl);
+
+    console.log(sec_details.firstElementChild.innerHTML);
+    console.log(sec_details.firstElementChild.outerHTML);
+
+    fetch(fName)
+      .then(res => res.json())
+      .then(resJson => {
+
+        // Build collection of objects in a trader Map and display page
+        Object.keys(resJson).forEach(key => {
+          if (resJson.hasOwnProperty(key)) {
+
+            // add to trader array
+            t_map.set(key, resJson[key]);
+
+            // display as html element
+            sec_details.insertAdjacentHTML('beforeend', `${key}`);
+            sec_details.insertAdjacentHTML('beforeend', `<pre>${JSON.stringify(resJson[key], null, 2)}</pre>`);
+
+          }
+        });
+        /* console.log(t_map.entries()); */
+      });
+  }
 
   function mapProps(obj) {
     Object.keys(obj).forEach(key => {

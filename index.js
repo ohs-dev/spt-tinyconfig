@@ -1,9 +1,8 @@
 import process from 'node:process';
-import { readJSON } from './script/utils.js';
+import { convertToMap, readJSON } from './script/utils.js';
 import botList from './data/app/roster.json' with { type: "json" };
 import mapList from './data/app/maps.json' with { type: "json" };
 import traderList from './data/app/traders.json' with { type: "json" };
-import { log } from 'node:console';
 
 // environment variables
 const e = {
@@ -89,36 +88,26 @@ try {
 try {
   const curJSON = readJSON(`${e.args[2]}`);
 
+  // Search for specific property in JSON file, if CLI arg is present 
+  //   Ex: >node index.js data/app/maps.json mapList
   if (e.args.length > 3) {
     let searchKey = e.args[3];
 
-    //const rslt = findKey(searchKey, curJSON);
+    const rslt = findKey(searchKey, curJSON);
+    //const rslt = findKey(searchKey, jMap);
+
     //console.log(`"${searchKey}":\n${JSON.stringify(rslt, null, 2)}`);
-
-    //printProps(curJSON);
-    //console.log(curJSON);
-    printProps(curJSON);
-
+    //const j = JSON.parse(JSON.stringify(curJSON['details'], null, 2));
+    //console.log(JSON.stringify(rslt));
 
   }
 
 } catch (err) {
   //console.log(error);
   console.log("Couldn't open file: File doesn't exist, or contains invalid json.");
+  console.log(err);
   process.exit(1);
 };
-
-// Search for key
-/* try {
-  if (e.args.length > 3) {
-    let searchKey = e.args[3];
-    const rslt = findKey(searchKey, curJSON);
-    console.log(`"${searchKey}":\n${JSON.stringify(rslt, null, 2)}`);
-  }
-} catch (error) {
-  console.log(error);
-  process.exit(1);
-} */
 
 // Find a key <keyname> within javascript object <obj>
 function findKey(keyname, obj) {
@@ -126,12 +115,21 @@ function findKey(keyname, obj) {
   if (obj.hasOwnProperty(keyname)) {
     return obj[keyname];
   }
-  Object.keys(obj).forEach(key => {
-    console.log(`searching: ${obj}, ${key}`);
-    if (typeof obj[key] === "object") {
-      findKey(keyname, obj[key]);
+
+  for (let p in obj) {
+    if (obj.hasOwnProperty(p)) {
+      const val = obj[p];
+
+      // If the value is an object (and not null), recurse into it
+      if (typeof val === 'object' && val !== null) {
+        const result = findKey(keyname, val);
+        // If a result is found in a nested object, return it immediately
+        if (result !== undefined) {
+          return result;
+        }
+      }
     }
-  });
+  }
 }
 
 function printProps(obj) {

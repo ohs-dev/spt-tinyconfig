@@ -23,6 +23,26 @@
   --disabled: #efefef;
 }
 
+/* CSS Combinators
+A combinator is a sign that explains the relationship between selectors.
+
+The table below shows the different combinators in CSS:
+
+Name	                         | Sign	     | Example	 | Result
+-----------------------------------------------------------------------------------------------------
+Child combinator	              >	          div > p	    Selects every <p> element that are direct children of 
+                                                        a <div> element
+Descendant combinator	          (space)     div p	      Selects all <p> elements inside <div> elements
+
+Namespace separator	            |	          ns | h2	    Selects all <h2> elements in namespace ns
+
+Next-sibling combinator	        +	          div + p	    Selects the first <p> element that is placed immediately 
+                                                        after <div> elements
+Selector list	                  ,	          div, p	    Selects all <div> elements and all <p> elements
+
+Subsequent-sibling combinator	  ~	          p ~ ul	    Selects all <ul> elements that are preceded by a <p> element 
+*/
+
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -73,71 +93,221 @@ html {
 body {
   color: var(--text);
   background-color: var(--bg);
+
   font-size: 1rem;
-  line-height: 1.5;
+
+  /* font-size: 1.15rem; */
+  /* line-height: 1.5; */
+
   /* display: grid; */
   /* grid-template-columns: 1fr min(45rem, 90%) 1fr; */
   margin: 0;
 }
 
+/* Make the header bg full width, but the content inline with body */
+header {
+  background-color: var(--accent-bg);
+  border-bottom: var(--border-width) solid var(--border);
+  /* Center items (.container) within the header left-right */
+  /* text-align: center; */
+  /* padding: ?(top left bottom right)? */
+  /* padding: 0 0.5rem 2rem 0.5rem; */
+  padding: 0 0.5rem 0.5rem 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-content: center; */
+  /* align-items: center */
+
+  /* TESTING - fixed postion at top of screen */
+  /* position: fixed;
+  width: 100%; */
+}
+
+header>.container {
+  border: var(--border-width) dashed var(--code);
+  margin: 0 auto;
+  min-width: 1440px;
+
+  display: flex;
+  /* Center items within this container | ---- | */
+  justify-content: center;
+
+}
+
+header>.container>* {
+  flex-basis: 10%;
+  flex-grow: 1;
+}
+
+.container>.brand {
+  border: var(--border-width) dashed #ccc;
+  /* aspect-ratio: 1/2; */
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem;
+}
+
+.container>.title {
+  text-align: center;
+}
+
+/* Wrapper containing the open/load buttons */
+.container>.buttons {
+  border: var(--border-width) dashed #ffb300;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 2rem;
+  /* flex-direction: row; */
+}
+
+button {
+  /* font-size: inherit; */
+  font-family: inherit;
+  padding: 0.5rem;
+  /* margin-bottom: 0.5rem; */
+  border-radius: var(--standard-border-radius);
+  box-shadow: none;
+  max-width: 100%;
+  /* display: inline-block; */
+}
+
+.row {
+  display: inline-flex;
+  flex-direction: row;
+  /* Centers height of items in the row */
+  /* align-items: center; */
+}
+
+.logo {
+  /* justify-self: flex-start; */
+  padding-left: 2rem;
+}
+
+.history {
+  /* justify-self: center;
+  align-self: center; */
+  margin: 0 auto;
+}
+
 /* Container for [aside] & [section] */
 main {
+  border: var(--border-width) dashed var(--code);
+  /* margin: 2rem; */
+  margin-left: auto;
+  margin-right: auto;
   /* padding-top: 1.5rem; */
-  margin: 2rem;
-  width: 100%;
+  /* padding-left: 2rem;
+  padding-right: 2rem; */
+  /* width: 70vw; */
+  max-width: 1440px;
 
   display: flex;
   flex-wrap: nowrap;
-
-  justify-content: stretch;
-
-  /* stretch container items all to the same height */
-  align-items: stretch;
 
   gap: 2rem;
 }
 
 aside {
-  flex-basis: auto;
-  align-content: stretch;
-  /* 1st col in the container */
-  order: 0;
-  font-size: 1rem;
+  border: var(--border-width) dashed var(--marked);
+  font-size: 1.15rem;
   /* width: 30%; */
   min-width: 15rem;
-  max-width: 20rem;
+  max-width: 25rem;
+
   padding-left: 1rem;
   padding-right: 1rem;
+
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 section {
-  /* 2nd column item in the container */
-  order: 2;
-  /* border-top: var(--border-width) solid var(--border);
-  border-bottom: var(--border-width) solid var(--border); */
-  border: var(--border-width) solid var(--marked);
-  padding: 1rem;
+
+  /* Old top border and bottom border
+    border-top: var(--border-width) solid var(--border);
+    border-bottom: var(--border-width) solid var(--border); 
+  */
+  /* debug
+  border: var(--border-width) dashed var(--marked); 
+  */
+  padding-top: 2rem;
+  font-size: 1.15rem;
+  width: 100%;
 }
 
 section>* {
   /* width: 1000px; */
-  margin: 1rem 1rem;
+  /* margin: 0.5rem 0.5rem; */
+  padding-top: 0.5rem;
 }
 
-/* Make the header bg full width, but the content inline with body */
-body>header {
-  background-color: var(--accent-bg);
-  border-bottom: var(--border-width) solid var(--border);
-  text-align: center;
-  padding: 0 0.5rem 2rem 0.5rem;
-
+/* Prevent long strings from overflowing container */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
-body>header>*:only-child {
+/* Fix line height when title wraps */
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+/* Format headers */
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  /* margin-top: 3rem; */
+}
+
+h3 {
+  font-size: 1.5rem;
+  /* margin-top: 3rem; */
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 0.96rem;
+}
+
+p {
+  margin: 0;
+}
+
+#openFile {
+  color: var(--text-light);
+  display: none;
+}
+
+
+
+/* body>header>*:only-child {
   margin-block-start: 2rem;
-}
+} */
 
-body>header h1 {
+/* body>header h1 {
   max-width: 1200px;
   margin: 1rem auto;
 }
@@ -145,17 +315,36 @@ body>header h1 {
 body>header p {
   max-width: 40rem;
   margin: 1rem auto;
-}
+} */
 
 body>footer {
-  margin-top: 4rem;
+  margin-top: 2rem;
   padding: 2rem 1rem 1.5rem 1rem;
   color: var(--text-light);
   font-size: 0.9rem;
   text-align: center;
-  border-top: var(--border-width) solid var(--marked);
+  border-top: var(--border-width) dashed var(--marked);
 }
 
+/* Format links & buttons */
+a,
+a:visited {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Header Logo & Title row  */
+.title {
+  border: var(--border-width) solid var(--marked);
+  color: #699eef
+}
+
+/* .row {
+  border: var(--border-width) solid var(--preformatted);
+} */
 
 /* article,
 fieldset,
@@ -191,7 +380,7 @@ details[open]> :last-child {
 } */
 
 /* Format forms */
-textarea,
+/* textarea,
 select,
 input,
 button,
@@ -204,7 +393,7 @@ button,
   box-shadow: none;
   max-width: 100%;
   display: inline-block;
-}
+} */
 
 textarea,
 select,
@@ -250,6 +439,7 @@ textarea:not([cols]) {
 
 /* do not show border around file selector button */
 input[type="file"] {
+  /* border line-width = 0 */
   border: 0;
 }
 
@@ -331,7 +521,7 @@ kbd {
 }
 
 pre {
-  padding: 1rem 1.4rem;
+  /* padding: 1rem 1.4rem; */
   /* max-width: 100%; */
   overflow: auto;
   color: var(--preformatted);
