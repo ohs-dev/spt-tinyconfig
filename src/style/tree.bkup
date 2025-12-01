@@ -1,0 +1,138 @@
+section>div.treeView {
+  /* background-color: var(--accent-bg); */
+  display: block;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-right: 2rem;
+  line-height: 1.5rem;
+  /* max-width: fit-content; */
+
+  /* background-color: #ccc; */
+  /* color: rgb(24, 24, 24); */
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+/* Sets the padding of the FIRST <ul> of the tree close left
+against the div.  Otherwise it would be inherited by .tree ul 
+
+Add to this value to push to the right.  | --> (tree)    |
+*/
+div.treeView>ul {
+  padding-left: 0;
+}
+
+.tree {
+  --spacing: 1.5rem;
+  --radius: 10px;
+  --tree-border-clr: var(--text-light);
+  --tree-caret-clr: #696;
+  --tree-caret-last: #656;
+}
+
+.tree ul li:first-child {
+  padding-top: 0;
+}
+
+.tree li {
+  display: block;
+  /* Makes the magic happen. (No circles without it) */
+  position: relative;
+  /* Old padding left calc( ... -2px). Not sure why but dont need it anymore */
+  padding-left: calc(2 * var(--spacing) - var(--radius) - 0px);
+  /* padding-top: 5px; */
+  padding-bottom: 0.25rem;
+}
+
+.tree img {
+  vertical-align: middle;
+}
+
+/* Spaces every <ul> after the root to the right.
+Creates for a visible path to connect the nodes */
+.tree ul {
+  margin-left: calc(var(--radius) - var(--spacing));
+  padding-left: 0;
+}
+
+/* Connects path to outer list-items */
+.tree ul li {
+  border-left: 2px solid var(--tree-border-clr);
+
+  /* TESTING padding-top */
+  /* padding-top: 0.25rem; */
+}
+
+/* Gets rid of little hanging border at the last item of each list */
+.tree ul li:last-child {
+  border-color: transparent;
+}
+
+/* Creates a line-path connecting all list-items */
+.tree ul li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(var(--spacing) / -2);
+  left: -2px;
+  width: calc(var(--spacing) + 1px);
+  height: calc(var(--spacing) + 1px);
+  border: solid var(--tree-border-clr);
+  border-width: 0 0 2px 2px;
+}
+
+.tree summary {
+  display: block;
+  cursor: pointer;
+  /* margin-top: 0.5rem; */
+}
+
+/* .tree>ul::before {
+  z-index: 1;
+  background: var(--tree-caret-clr) url('../src/assets/images/expand-collapse.svg') 0 0;
+} */
+
+.tree summary::marker,
+.tree summary::-webkit-details-marker {
+  display: none;
+}
+
+.tree summary:focus {
+  outline: none;
+}
+
+.tree summary:focus-visible {
+  outline: 1px dashed var(--tree-caret-clr);
+}
+
+/* Create a round shape before each summary,
+and after each <li> */
+.tree li::after,
+.tree summary::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(var(--spacing) / 2 - var(--radius));
+  left: calc(var(--spacing) - var(--radius) - 1px);
+  width: calc(2 * var(--radius));
+  height: calc(2 * var(--radius));
+  border-radius: 50%;
+  /* background: var(--tree-border-clr); */
+  /* background: var(--tree-caret-last); */
+  background: url('../src/assets/images/curly_brackets.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: var(--text);
+  background-position: 0px 0px;
+}
+
+/* Adds a caret (+) to each list-item that contains a details element. */
+.tree summary::before {
+  z-index: 1;
+  background: var(--tree-caret-clr) url('../src/assets/images/expand-collapse.svg');
+}
+
+/* Changes caret to (-) when list-item is open */
+.tree details[open]>summary::before {
+  background-position: calc(-2 * var(--radius)) 0;
+}

@@ -6,3 +6,12 @@ style/simple.css
 
 # JSON data files
 data/SPT_Data/*
+
+# Test files
+test/*
+
+# SPT assets
+src/assets/spt
+
+# Distribution files
+/dist/*
