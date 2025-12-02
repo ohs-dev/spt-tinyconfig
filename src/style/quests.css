@@ -1,0 +1,94 @@
+/* Global variables. */
+:root {
+
+  /* #region ##  Layout  ## */
+
+  /* Layout side panels */
+  --layout-sidebar-min: 14rem;
+  --layout-sidebar-gap: 2rem;
+  --layout-side-padding-min: 1rem;
+  --layout-side-padding: max(var(--layout-side-padding-min),
+      calc((100vw - 1440px + (2rem)) / 2));
+
+  /* Layout main content */
+  --layout-full-width: calc(100vw - 2 * var(--layout-side-padding));
+  --layout-max-width: 1440px;
+  --layout-content-width: max(var(--layout-max-width), 100vw);
+  --layout-content-min: 31rem;
+  --layout-content-max: 48rem;
+
+  /* Border widths/radius */
+  --standard-border-radius: 5px;
+  --border-width: 1px;
+
+  /* #endregion */
+
+  /* #region ##  Fonts  ## */
+
+  --sans-font: -apple-system, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI";
+  --mono-font: "Fira Code", "FiraCode Nerd Font Mono", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+  /* #endregion */
+
+  /* #region ##  Theme (L)  ## */
+  --bg: #fff;
+  --bg-mdn: #18191b;
+  --bg-header: #fff;
+  --bg-accent: #f5f7ff;
+  --bg-accent-2: #f5f5f5;
+  --bg-accent-mdn: #212426;
+
+  --text: #212121;
+  --text-light: #585858;
+  --border: #898EA4;
+  --accent: #0d47a1;
+  --accent-hover: #1266e2;
+  --accent-text: var(--bg);
+  --code: #d81b60;
+  --preformatted: #444;
+  --marked: #ffdd33;
+  --disabled: #efefef;
+
+  /* Tree View Colors */
+  --tree-bg: rgba(241, 241, 241, 0.8);
+  --tree-text: var(--text);
+  --tree-border: var(--text-light);
+  --tree-caret: #696;
+  --tree-caret-last: #656;
+
+  /* Svg page bg colors */
+  --page-svg-background: #212121;
+  --page-svg-foreground: #292828;
+
+  /* #endregion */
+
+  /* #region ##  Text/Headers  ## */
+  --text-h1-l: 2.5rem;
+  --text-h2-l: 2rem;
+  --text-h3-l: 1.5rem;
+  --text-h4-l: 1.25rem;
+
+  --text-h1-m: 2rem;
+  --text-h2-m: 1.5rem;
+  --text-h3-m: 1.2rem;
+  --text-h4-m: 1.1rem;
+
+  /* Standard text */
+  --text-sz-xl: 1.25rem;
+  --text-sz-l: 1.15rem;
+  --text-sz-m: 1rem;
+  --text-sz-s: 0.9rem;
+  --text-sz-xs: 0.75rem;
+
+  /* #endregion */
+
+  /* #region ##  Images/Icons  ## */
+
+  /* treeview */
+  --img-tree-open: url('../assets/images/expand-collapse.svg');
+  --img-tree-close: url('../assets/images/expand-collapse.svg');
+  --img-tree-node: url('../assets/images/curly_brackets.png');
+
+  /* #endregion */
+}
