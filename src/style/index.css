@@ -399,6 +399,17 @@ header>.container::before {
 
 }
 
+/* -- Dropdown menu w/ tabs */
+/* 
+
+  mdn-dropdown {
+    display: contents;
+  }
+  mdn-dropdown:not([loaded],:focus-within) [slot="dropdown"] {
+    display: none;
+  }
+ */
+
 header button {
 
   padding: 0.5rem;
