@@ -1,5 +1,8 @@
 import type { IItem } from './IItem.js';
 
+// Quest map quest items
+// #SPT_Data/Server/database/config/location.json - forcedLootSingleSpawnById
+
 export interface IGlobals {
   config: IConfig;
   //LocationInfection: ILocationInfection;

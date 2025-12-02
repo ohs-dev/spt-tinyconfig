@@ -1,9 +1,30 @@
+/* #region root */
+
 /* Global variables. */
 :root {
+
+  /* Layout */
+  --layout-side-padding-min: 1rem;
+  --layout-side-padding: max(var(--layout-side-padding-min),
+      calc((100vw - 1440px + (2rem)) / 2));
+  --layout-full-width: calc(100vw - 2 * var(--layout-side-padding));
+
+  --layout-max-width: 1440px;
+
+  --layout-actual-width: max(var(--layout-max-width), 100vw);
+
+  --layout-sidebar-min: 14rem;
+  --layout-sidebar-gap: 2rem;
+  --layout-content-min: 31rem;
+  --layout-content-max: 48rem;
+
   /* Set sans-serif & mono fonts */
   --sans-font: -apple-system, "Avenir Next", Avenir,
     "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI";
   --mono-font: "Fira Code", "FiraCode Nerd Font Mono Light", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+
+
   --standard-border-radius: 5px;
   --border-width: 1px;
 
@@ -12,6 +33,8 @@
   --accent-bg: #f5f7ff;
   --text: #212121;
   --text-light: #585858;
+  --bg-mdn: #18191b;
+  --bg-accent-mdn: #212426;
   --border: #898EA4;
   --accent: #0d47a1;
   --accent-hover: #1266e2;
@@ -20,6 +43,7 @@
   --preformatted: #444;
   --marked: #ffdd33;
   --disabled: #efefef;
+  --header-bg: #fff;
 
   /* Custom colors */
   --bg-white246: rgb(246, 246, 246);
@@ -35,16 +59,12 @@
   --text-h3-m: 1.2rem;
   --text-h4-m: 1.1rem;
 
-
-
   /* Standard text sizes (large, med, small) */
   --text-sz-xl: 1.25rem;
   --text-sz-l: 1.15rem;
   --text-sz-m: 1rem;
   --text-sz-s: 0.9rem;
   --text-sz-xs: 0.75rem;
-
-
 
   /* Tree View Colors */
   --tree-background-clr: rgba(241, 241, 241, 0.8);
@@ -59,27 +79,26 @@
   --img-tree-close: url('../assets/images/expand-collapse.svg');
   --img-tree-node: url('../assets/images/curly_brackets.png');
 
+  /* Cool background tile svg
+  
+    foreground: #292828
+    background: #212121
+  */
 
 }
 
-/* ---  CSS Combinators  --------------------------------------
-|       |
-|   >	  |   Direct children
-|--------------------------------------------------------------
-|   _   |   (space) Descendants of element (anywhere)
-|--------------------------------------------------------------
-|   +	  |   Next sibling. Selects first <el> immediately after 
-|--------------------------------------------------------------
-|   ~   |   Subsequent-sibling combinator.  ( p ~ ul )	
-|       |   Selects all <ul> elements preceded by a <p>
-|-------------------------------------------------------------- */
+/* #endregion root */
 
 /* #region ---  Dark theme  --- */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --bg: #212121;
-    --accent-bg: #2b2b2b;
+    /* --bg: #212121; */
+    --bg: #18191b;
+    /* --accent-bg: #2b2b2b; */
+    --accent-bg: #191a1b;
+    /* --header-bg: #212121; */
+    --header-bg: rgb(25, 26, 27);
     --text: #dcdcdc;
     --text-light: #ababab;
     --accent: #ffb300;
@@ -107,7 +126,7 @@
 
 /* #endregion */
 
-/* #region ---  Basic '<element>' Setup  --- */
+/* #region ---  Basic  --- */
 
 html {
   /* Set the font globally */
@@ -121,6 +140,15 @@ html {
 *::after {
   box-sizing: border-box;
 }
+
+/* Make the body a nice central block */
+body {
+  margin: 0;
+  color: var(--text);
+  /* background-color: var(--bg); */
+  font-size: var(--text-sz-l);
+}
+
 
 /* Format links & buttons */
 a,
@@ -140,15 +168,6 @@ progress {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-}
-
-/* Make the body a nice central block */
-body {
-  margin: 0;
-  color: var(--text);
-  background-color: var(--bg);
-  font-size: var(--text-sz-l);
-  /* line-height: 1.5; */
 }
 
 details {
@@ -289,92 +308,104 @@ cite {
 
 /* #endregion */
 
+/* #region ---  Page Layout  --- */
+
+body>.page {
+  margin: 0;
+  position: relative;
+}
+
+body>.page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: #212121;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23292828' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.page>div.layout {
+
+  margin: 0;
+  padding-left: max(var(--layout-side-padding), var(--layout-side-padding-min));
+  padding-right: max(var(--layout-side-padding), var(--layout-side-padding-min));
+
+}
+
+/* #endregion */
+
 /* #region ---  <header>  --- */
 
 /* Make the header bg full width, but the content inline with body */
 header {
-  background-color: var(--accent-bg);
-  border-bottom: var(--border-width) solid var(--border);
-  /* padding: ?(top left bottom right)? */
-  /* padding: 0 0.5rem 2rem 0.5rem; */
-  /* padding: 0 0.5rem 0.5rem 0.5rem; */
+  /* background-color: var(--header-bg); */
+  background-color: #18191b;
+  border-bottom: var(--border-width) solid var(--text-light);
+  margin-bottom: 1rem;
   max-width: 100vw;
+
   display: flex;
   flex-direction: column;
 }
 
 header>.container {
-  /* border: var(--border-width) dashed var(--code); */
-  margin: 0 auto;
-  min-width: calc(100vw - 2rem);
-
-  /* Center items within this container | ---- | */
+  position: relative;
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
-header>.container>* {
-  flex-basis: 10%;
-  flex-grow: 1;
-  flex-shrink: 0.5;
+header>.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .container>.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0 1.5rem;
-}
-
-/* Header Logo & Title row  */
-.container>.title {
-  text-align: center;
-  /* border: var(--border-width) solid var(--marked); */
-  color: #699eef
+  /* border: red dashed 1px; */
+  margin-left: 1rem;
+  margin-right: auto;
+  align-self: flex-start;
+  justify-self: flex-start;
 }
 
 /* Wrapper containing the open/load buttons */
-.container>.buttons {
+.container>.end {
   /* border: var(--border-width) dashed #ffb300; */
-  display: inline-flex;
-  justify-content: flex-end;
+  margin-right: 1rem;
+  margin-left: auto;
   align-items: center;
-  gap: 1rem;
-  padding-right: 2rem;
-  /* flex-direction: row; */
+}
+
+.container>.nav {
+
+  margin: 0 auto;
+  height: 64px;
+  min-width: 40rem;
+  border: yellow dashed 0.5px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 8px;
+
 }
 
 header button {
-  /* padding: 0.5rem; */
-  padding: 0.5rem 1rem;
-  background-color: hsla(300 50% 20% / 0.15);
-  border: #2b2b2b solid 1px;
 
-  /* border-radius: var(--standard-border-radius); */
+  padding: 0.5rem;
+  background-color: inherit;
+  border: none;
   --font-family: Menlo, Roboto Mono, monospace;
   box-shadow: none;
-}
-
-header button:hover {
-  /* background-color: hsla(300 50% 41.2% / 0.44); */
-  background-color: hsla(35 50% 50% / 0.92);
-  /* background-color: var(--accent); */
-}
-
-#openFile {
-  color: var(--text-light);
-  /* display: none; */
-}
-
-/* .row {
-  display: inline-flex;
-  flex-direction: row;
-} */
-
-.history {
-  /* justify-self: center;
-  align-self: center; */
-  margin: 0 auto;
 }
 
 /* #endregion */
@@ -385,13 +416,40 @@ header button:hover {
 main {
   /* border: var(--border-width) dashed var(--code); */
   margin: 0 auto;
-  max-width: calc(100vw - 2rem);
-  min-height: 70vh;
+  /* max-width: calc(100vw - 2rem); */
+  /* max-width: 1400px; */
+  min-height: 100vh;
 
+  position: relative;
   display: flex;
   flex-wrap: nowrap;
-  gap: 1rem;
 }
+
+main::before {
+  /* Required for pseudo elements */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* background-image: url('../assets/images/tarkov/hideout-desk.jpg');
+  background-size: contain;
+  background-repeat: no-repeat; */
+
+  /* background-color: #181818;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23181818' stroke-width='.5' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cuse fill='%232b2b2b' href='%23s' y='2'/%3E%3Cuse fill='%232b2b2b' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23383838' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23383838' href='%23s'/%3E%3Cuse fill='%23434343' href='%23s' x='2'/%3E%3Cuse fill='%23434343' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%234c4c4c'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%234c4c4c'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23545454'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23181818'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%235b5b5b'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover; */
+
+
+  opacity: 0.05;
+  z-index: -1;
+
+}
+
+
 
 pre {
   /* padding: 1rem 1.4rem; */
@@ -430,20 +488,18 @@ code {
 
 /* The left-hand panel of main area */
 aside {
-  /* Debug: border */
-  /* border: var(--border-width) dashed var(--marked); */
-
+  padding-top: 1rem;
   max-width: 25rem;
   font-size: var(--text-sz-l);
   padding-left: 1rem;
   padding-right: 1rem;
+  border-left: var(--accent-bg) solid 0.5px;
 }
 
 .sideNav {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* padding: 1rem 0 1rem 0; */
   padding-bottom: 1rem;
   gap: 0.1rem;
 }
@@ -456,14 +512,16 @@ aside {
   display: inline-flex;
   gap: 1rem;
   align-items: center;
-  background-color: rgb(41, 41, 41);
+  /* background-color: rgb(41, 41, 41); */
+  background-color: var(--bg-mdn);
 
   /* Accidentally centered the image AND text */
   /* text-align: center; */
 }
 
 aside button:hover {
-  background-color: rgb(51, 51, 51);
+  /* background-color: rgb(51, 51, 51); */
+  background-color: var(--bg-accent-mdn);
 }
 
 .sideLink img {
@@ -481,7 +539,7 @@ aside textarea {
   min-height: 6rem;
   font-size: var(--text-sz-m);
   border: var(--accent-bg) solid 0.5px;
-  width: 100%;
+  min-width: 100%;
 }
 
 /* #endregion */
@@ -500,6 +558,7 @@ section {
   font-size: var(--text-sz-l);
   max-width: 1400px;
   /* width: 100%; */
+
 }
 
 section .two_columns {
@@ -569,14 +628,6 @@ section div.test summary {
   word-break: break-all;
 }
 
-/* section div.treeView summary::before {
-  background: #ddd url('src/assets/images/treeview_plus.svg') 0 0;
-}
- */
-/* section div.treeView details[open]>summary+* {
-  margin-top: 0;
-} */
-
 section div.test details[open]>summary {
   margin-bottom: 0.5rem;
   /* border-bottom: var(--preformatted) solid var(--border-width); */
@@ -588,20 +639,16 @@ section div.test details[open]> :last-child {
 
 }
 
-
 section>div.treeView {
-  /* background-color: var(--accent-bg); */
   display: block;
   margin-top: 2rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  /* padding-right: 2rem; */
-
-  /* background-color: var(--text);
-  color: var(--bg); */
-  background-color: var(--tree-background-clr);
+  padding-right: 1rem;
+  background-color: var(--bg-accent-mdn);
   color: var(--tree-text-clr);
-  max-width: 85%;
+  /* max-width: 85%; */
+  max-width: fit-content;
 
 }
 
@@ -610,24 +657,18 @@ against the div.  Otherwise it would be inherited by .tree ul
 
 Add to this value to push to the right.  | --> (tree)    |
 */
-div.treeView>ul {
+/* div.treeView>ul {
   padding-left: 0;
-}
+} */
 
 .tree {
+  padding-left: 0;
   --spacing: 1.5rem;
   --radius: 10px;
   --tree-border-clr: var(--text-light);
   --tree-caret-clr: #696;
   --tree-caret-last: #656;
 }
-
-/* TEST */
-.tree ul li:first-child {
-  padding-top: 0;
-}
-
-
 
 .tree li {
   display: block;
@@ -704,10 +745,6 @@ Creates for a visible path to connect the nodes */
   background: linear-gradient(90deg, rgba(30, 30, 30, 0.6), rgba(42, 42, 42, 0.4));
 }
 
-/* NO DIFFERENCE? */
-/* .tree summary:focus-visible {
-  outline: 1px dashed var(--tree-caret-clr);
-} */
 
 /* Create a round shape before each summary,
 and after each <li> */
@@ -748,6 +785,8 @@ and after each <li> */
 
 /* #endregion Tree View */
 
+/* #region ---  Card Panel  --- */
+
 section>.card_panel {
 
   /* margin: 1rem 0.5rem; */
@@ -764,7 +803,7 @@ section>.card_panel {
   flex-shrink: 0;
   align-items: center;
 
-  row-gap: 16px;
+  row-gap: 0px;
   background: url('../assets/images/textured-brown.jpg');
 
 }
@@ -820,11 +859,8 @@ section>.card_panel {
 
 /* #endregion */
 
-/* TODO: unneccessary? */
-/* .tip {
-  font-size: 0.8rem;
-  color: var(--text-light);
-} */
+/* #endregion */
+
 
 footer {
   margin-top: 2rem;
@@ -834,16 +870,6 @@ footer {
   text-align: center;
   border-top: var(--border-width) solid var(--preformatted);
 }
-
-/* Add arrow to drop-down */
-/* select:not([multiple]) {
-  background-image: linear-gradient(45deg, transparent 49%, var(--text) 51%),
-    linear-gradient(135deg, var(--text) 51%, transparent 49%);
-  background-position: calc(100% - 15px), calc(100% - 10px);
-  background-size: 5px 5px, 5px 5px;
-  background-repeat: no-repeat;
-  padding-inline-end: 25px;
-} */
 
 
 /* #region ---  @media  --- */
@@ -856,7 +882,12 @@ footer {
 
   main {
     /* max-width: calc(100vw - 2rem); */
-    gap: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .eye_candy img {
+    display: none;
   }
 
   h1 {
@@ -890,6 +921,10 @@ footer {
     height: 32px;
   }
 
+  img.eye_candy {
+    display: none;
+  }
+
   .sideLink {
     font-size: var(--text-sz-l);
   }
@@ -917,9 +952,31 @@ footer {
     width: 100%;
   }
 
+  .brand {
+    display: hidden;
+  }
+
+  header>.container .nav {
+    display: none;
+    width: 100%;
+  }
+
+  img.eye_candy {
+    display: none;
+  }
+
+  .treeView *,
+  .tree * {
+    display: none;
+  }
+
   aside,
   section {
     font-size: var(--text-sz-s);
+  }
+
+  aside {
+    display: none;
   }
 }
 

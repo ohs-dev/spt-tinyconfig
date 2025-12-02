@@ -1,5 +1,6 @@
 import { type Ixyz } from "./Globals.js";
 
+// Think this is for Items.json in '/SPT_Data/Server/database/templates/'
 export interface ITemplateItem {
   _id: string;
   _name: string;

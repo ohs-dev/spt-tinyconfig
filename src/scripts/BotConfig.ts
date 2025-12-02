@@ -38,28 +38,35 @@ const getItem = (k: string) => {
 }
 
 //console.log(getItem('54009119af1c881c07000029'));
-//console.log(getItem('543be5f84bdc2dd4348b456a'));
-//console.log(getItem('543be6674bdc2df1348b4569'));
 
 let n: number = 0;
 //const arr: string[] = [];
 
 
+// Functional, for now :)
 function mapFromTpls<T>(data: Record<string, SPTItem>): Map<string, SPTItem> {
 
   const tplMap = new Map<string, SPTItem>();
-  Object.keys(data).forEach((val, index) => {
+  Object.keys(data).forEach(val => {
     tplMap.set(val, data[val] as SPTItem);
+    if (data[val]) {
+      console.log(val, data[val]._name, `, ${data[val]._type}`);
+    }
   })
   return tplMap;
 }
 
-const itemMap = new Map();
+const mItemsBase = mapFromTpls(items);
+
+console.log(mItemsBase.size);
+
+
+/* const itemMap = new Map();
 Object.keys(items).forEach((id, index) => {
   //arr.push(id);
   //n++;
   itemMap.set(id, items[id]);
-});
+}); */
 
 
 

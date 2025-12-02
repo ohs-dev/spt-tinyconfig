@@ -6,6 +6,14 @@ export interface IItem {
     location?: IItemLocation | number;
     upd?: IUpd;
 }
+export interface IItemBase {
+    _id: string;
+    _name: string;
+    _parent: string;
+    _props: any;
+    _type: string;
+    _proto?: any;
+}
 export interface IItemLocation {
     x: number;
     y: number;

@@ -1,7 +1,6 @@
 export declare const BotNames: string[];
 export declare enum BotCommonNames {
     "assault" = "Scav",
-    "arenafighter" = "Arena Scav",
     "arenafighterevent" = "Smuggler",
     "bear" = "Bear PMC",
     "bossboar" = "Kaban",
@@ -34,9 +33,9 @@ export declare enum BotCommonNames {
     "followertagilla" = "Tagilla guard",
     "followerzryachiy" = "Zryachiy guard",
     "gifter" = "Santa",
-    "pmcbear" = "Bear Raider",
+    "pmcbear" = "Bear Bot",
     "pmcbot" = "Raider",
-    "pmcusec" = "Usec Raider",
+    "pmcusec" = "Usec Bot",
     "marksman" = "Marksman",
     "sectantoni" = "Cultist Oni",
     "sectantpredvestnik" = "Cultist Predvestnik",
