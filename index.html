@@ -22,14 +22,14 @@
         </div>
 
         <div class="nav">
-          <button class="menubtn" id="nav_globals">
+          <button onclick="saveFile()" class="menubtn" id="nav_globals">
             <i class="arrow down"></i>
-            Global Settings
+            Globals
           </button>
 
           <button class="menubtn" id="nav_ai">
             <i class="arrow down"></i>
-            Enemy Bot AI
+            Bot AI
           </button>
           <button class="menubtn" id="nav_traders">
             <i class="arrow down"></i>
@@ -53,7 +53,7 @@
           </button>
           <button class="menubtn" id="nav_profile">
             <i class="arrow down"></i>
-            User Profile
+            Profile
           </button>
         </div>
 
@@ -243,80 +243,12 @@
   const ctr = document.querySelector('div.container');
   console.log('container-w: ', ctr.clientWidth);
   console.log('container-h: ', ctr.clientHeight);
+  console.log(ctr.computedStyleMap);
 
   const nv = document.querySelector('div.nav');
   console.log('nav_menu width: ', nv.clientWidth);
   console.log('nav_menu height: ', nv.clientHeight);
 
-
-
-
-
-  function saveFile() {
-    console.log("Save button pressed.");
-
-    /* GraphQL query
-    {
-      bosses {
-        name
-        id
-        imagePortraitLink
-      }
-    }
-    */
-    try {
-      const cardPanel = document.querySelector('div.card_panel');
-
-      fetch('https://api.tarkov.dev/graphql', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          query: `{bosses {id name imagePortraitLink}}`
-        })
-      })
-        .then(r => r.json())
-        .then(data => {
-          console.log('data returned:', data);
-
-          const bossObj = data['data']['bosses'];
-          //console.log('bossObj: ', JSON.stringify(bossObj));
-
-          if (bossObj) {
-
-            // Loop through bosses returned from the api
-            for (let i = 0; i < bossObj.length - 1; i++) {
-
-              if (bossObj[i].name) {
-
-                console.log(bossObj[i].name);
-                // create new <div> element
-                const newCard = document.createElement('div');
-                // set class on new card
-                newCard.classList.add('card');
-                // create h2 and img for the card.
-                const newh2 = document.createElement('h2');
-                newh2.innerText = bossObj[i].name;
-                const newimg = document.createElement('img');
-                newimg.src = bossObj[i].imagePortraitLink;
-
-                // add h2 & img to card
-                newCard.append(newh2);
-                newCard.append(newimg);
-
-                // insert into card panel
-                cardPanel.append(newCard);
-              }
-            }
-          }
-        });
-
-    } catch (err) {
-      console.log('SaveFileError: \n', err.message);
-    }
-
-  }
 
   function openFile() {
     const fName = "./test/bear.json";
