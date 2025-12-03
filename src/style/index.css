@@ -1,54 +1,88 @@
-/* #region root */
-
 /* Global variables. */
 :root {
 
-  /* Layout */
+  /* #region ##  Layout  ## */
+
   --layout-side-padding-min: 1rem;
   --layout-side-padding: max(var(--layout-side-padding-min),
       calc((100vw - 1440px + (2rem)) / 2));
-  --layout-full-width: calc(100vw - 2 * var(--layout-side-padding));
-
-  --layout-max-width: 1440px;
-
-  --layout-actual-width: max(var(--layout-max-width), 100vw);
-
   --layout-sidebar-min: 14rem;
-  --layout-sidebar-gap: 2rem;
+
   --layout-content-min: 31rem;
   --layout-content-max: 48rem;
+  --layout-full-width: calc(100vw - 2 * var(--layout-side-padding));
+  --layout-max-width: 1440px;
+  --layout-actual-width: max(var(--layout-max-width), 100vw);
 
-  /* Set sans-serif & mono fonts */
-  --sans-font: -apple-system, "Avenir Next", Avenir,
-    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI";
-  --mono-font: "Fira Code", "FiraCode Nerd Font Mono Light", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --menu-width-max: 1024px;
+  --menu-height-min: 40px;
 
+  /* Padding on the sides of the page content */
+  --layout-spacing: 1rem;
 
+  /* Padding between elements */
+  --layout-gap: 1rem;
 
+  /* --layout-side-gap: 2rem; */
+
+  --header-height: 72px;
   --standard-border-radius: 5px;
   --border-width: 1px;
+  --border-size: 1px;
 
-  /* Default (light) theme */
+  --line-height: 1rem;
+
+  /* #endregion */
+
+  /* #region ##  Fonts  ## */
+
+  --sans-font: -apple-system, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI";
+  --mono-font: "Fira Code", "FiraCode Nerd Font Mono", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+  /* #endregion */
+
+  /* #region ##  Theme (L)  ## */
+
   --bg: #fff;
-  --accent-bg: #f5f7ff;
+  --bg-accent: #f5f7ff;
+  --bg-mdn: rgb(24, 25, 27);
+  --bg-mdn-accent: #212426;
+  /* #212426 equivalent rgb(33,36,38) */
+  --bg-accent-2: #f5f5f5;
+  --bg-header: #fff;
+
+  --border: #898EA4;
+  --menu-border: #f5f7ff;
+
   --text: #212121;
   --text-light: #585858;
-  --bg-mdn: #18191b;
-  --bg-accent-mdn: #212426;
-  --border: #898EA4;
+  --text-hp: #d7d7d7;
+  --text-accent: rgb(24, 25, 26);
+  --preformatted: #444;
+  --disabled: #efefef;
+
   --accent: #0d47a1;
   --accent-hover: #1266e2;
-  --accent-text: var(--bg);
+  --marked: rgb(255, 221, 51);
+  --marked-muted: rgb(128, 110, 25);
+
+
+
+
   --code: #d81b60;
-  --preformatted: #444;
-  --marked: #ffdd33;
-  --disabled: #efefef;
-  --header-bg: #fff;
 
-  /* Custom colors */
-  --bg-white246: rgb(246, 246, 246);
+  /* Tree View Colors */
+  --tree-bg: rgba(241, 241, 241, 0.8);
+  --tree-text: var(--text);
+  --tree-border: var(--text-light);
+  --tree-caret: #696;
+  --tree-caret-last: #656;
 
-  /* <h1>,<h2>,<h3>... */
+  /* #endregion */
+
+  /* #region ##  Text/Headers  ## */
+
   --text-h1-l: 2.5rem;
   --text-h2-l: 2rem;
   --text-h3-l: 1.5rem;
@@ -59,62 +93,55 @@
   --text-h3-m: 1.2rem;
   --text-h4-m: 1.1rem;
 
-  /* Standard text sizes (large, med, small) */
+  /* Standard text */
   --text-sz-xl: 1.25rem;
   --text-sz-l: 1.15rem;
   --text-sz-m: 1rem;
   --text-sz-s: 0.9rem;
   --text-sz-xs: 0.75rem;
 
-  /* Tree View Colors */
-  --tree-background-clr: rgba(241, 241, 241, 0.8);
-  --tree-text-clr: var(--text);
+  /* #endregion */
 
-  --tree-border-clr: var(--text-light);
-  --tree-caret-clr: #696;
-  --tree-caret-last: #656;
+  /* #region ##  Images/Icons  ## */
 
-  /* Tree View Node Icons */
+  /* treeview */
   --img-tree-open: url('../assets/images/expand-collapse.svg');
   --img-tree-close: url('../assets/images/expand-collapse.svg');
   --img-tree-node: url('../assets/images/curly_brackets.png');
 
-  /* Cool background tile svg
-  
-    foreground: #292828
-    background: #212121
-  */
+  /* #endregion */
 
 }
 
-/* #endregion root */
+/* #region ---  @media (dark)  --- */
 
-/* #region ---  Dark theme  --- */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
+
     /* --bg: #212121; */
+    /* --bg-accent: #2b2b2b; */
+    /* --bg-header: #212121; */
     --bg: #18191b;
-    /* --accent-bg: #2b2b2b; */
-    --accent-bg: #191a1b;
-    /* --header-bg: #212121; */
-    --header-bg: rgb(25, 26, 27);
+    --bg-accent: #191a1b;
+    /* --bg-header: #191a1b; */
+    --bg-header: #18191b;
+
     --text: #dcdcdc;
     --text-light: #ababab;
     --accent: #ffb300;
     --accent-hover: #ffe099;
-    --accent-text: var(--bg);
+    --text-accent: #fff;
     --code: #f06292;
     --preformatted: #ccc;
     --disabled: #111;
 
     /* Tree View */
-    --tree-background-clr: rgba(42, 42, 42, 0.88);
-    --tree-text-clr: rgba(241, 241, 241, 0.8);
-    --tree-border-clr: var(--text-light);
-    --tree-caret-clr: #696;
+    --tree-bg: rgba(42, 42, 42, 0.88);
+    --tree-text: rgba(241, 241, 241, 0.8);
+    --tree-border: var(--text-light);
+    --tree-caret: #696;
     --tree-caret-last: #656;
-
   }
 
   /* Add a bit of transparency so light media isn't so glaring in dark mode */
@@ -126,7 +153,7 @@
 
 /* #endregion */
 
-/* #region ---  Basic  --- */
+/* #region ---  element resets  --- */
 
 html {
   /* Set the font globally */
@@ -145,12 +172,10 @@ html {
 body {
   margin: 0;
   color: var(--text);
-  /* background-color: var(--bg); */
   font-size: var(--text-sz-l);
 }
 
-
-/* Format links & buttons */
+/* Format links */
 a,
 a:visited {
   color: var(--accent);
@@ -158,6 +183,13 @@ a:visited {
 
 a:hover {
   text-decoration: none;
+}
+
+/* Format buttons */
+button {
+  font-size: inherit;
+  font-family: inherit;
+  box-shadow: none;
 }
 
 /* Reset default appearance */
@@ -175,10 +207,6 @@ details {
   padding: 0;
 }
 
-section>div.test details[open] {
-  background-color: var(--accent-bg);
-}
-
 article,
 fieldset,
 dialog {
@@ -186,14 +214,6 @@ dialog {
   padding: 1rem;
   border-radius: var(--standard-border-radius);
   margin-bottom: 1rem;
-}
-
-/* Format forms */
-button,
-.button {
-  font-size: inherit;
-  font-family: inherit;
-  box-shadow: none;
 }
 
 textarea,
@@ -206,13 +226,7 @@ input {
 
 /* do not show border around file selector button */
 input[type="file"] {
-  /* border line-width = 0 */
   border: 0;
-}
-
-label {
-  display: block;
-  padding-bottom: 0.5rem;
 }
 
 /* Prevent long strings from overflowing container */
@@ -226,7 +240,7 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* Fix line height when title wraps */
+/* Line height */
 h1,
 h2,
 h3,
@@ -262,51 +276,9 @@ p {
   margin: 0;
 }
 
-hr {
-  border: none;
-  height: var(--border-width);
-  background: var(--border);
-  margin: 1rem auto;
-}
-
-figure {
-  margin: 0;
-  display: block;
-  overflow-x: auto;
-}
-
-figure>img,
-figure>picture>img {
-  display: block;
-  margin-inline: auto;
-}
-
-figcaption {
-  position: sticky;
-  left: 0;
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-light);
-  margin-block: 1rem;
-}
-
-blockquote {
-  margin-inline-start: 2rem;
-  margin-inline-end: 0;
-  margin-block: 2rem;
-  padding: 0.4rem 0.8rem;
-  border-inline-start: 0.35rem solid var(--accent);
-  color: var(--text-light);
-  font-style: italic;
-}
-
-cite {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  font-style: normal;
-}
-
 /* #endregion */
+
+
 
 /* #region ---  Page Layout  --- */
 
@@ -323,80 +295,98 @@ body>.page::before {
   width: 100%;
   height: 100%;
 
-  background-color: #212121;
+  /* background-color: #212121; */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23292828' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   opacity: 0.1;
   z-index: -1;
 }
 
-.page>div.layout {
+/* #endregion */
 
-  margin: 0;
+
+/* #region ---  Header  --- */
+
+/* Makes the header bg full width */
+header {
+  max-width: 100vw;
+  min-height: var(--header-height);
+  background-color: var(--bg-header);
+
+  /* Gap before page content. */
+  margin-bottom: var(--layout-spacing);
+  border-bottom: var(--border-size) solid var(--menu-border);
+}
+
+/* Container for the nav menu, logo, and hamburger menu */
+header>.container {
+  /* Keep width as wide as with page content. */
   padding-left: max(var(--layout-side-padding), var(--layout-side-padding-min));
   padding-right: max(var(--layout-side-padding), var(--layout-side-padding-min));
 
-}
-
-/* #endregion */
-
-/* #region ---  <header>  --- */
-
-/* Make the header bg full width, but the content inline with body */
-header {
-  /* background-color: var(--header-bg); */
-  background-color: #18191b;
-  border-bottom: var(--border-width) solid var(--text-light);
-  margin-bottom: 1rem;
-  max-width: 100vw;
-
-  display: flex;
-  flex-direction: column;
-}
-
-header>.container {
-  position: relative;
   display: flex;
   align-items: center;
 }
 
-header>.container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.container>.brand {
-  /* border: red dashed 1px; */
-  margin-left: 1rem;
+/* SPT Logo container */
+.container>.logo {
+  /* Keeps this all the way to the left side. */
   margin-right: auto;
-  align-self: flex-start;
-  justify-self: flex-start;
 }
 
-/* Wrapper containing the open/load buttons */
-.container>.end {
-  /* border: var(--border-width) dashed #ffb300; */
-  margin-right: 1rem;
+.logo>img {
+  vertical-align: middle;
+}
+
+/* Hamburger button */
+.container>.nav_end {
+  /* Space this all the way to the right. */
   margin-left: auto;
   align-items: center;
 }
 
 .container>.nav {
-
   margin: 0 auto;
-  height: 64px;
-  min-width: 40rem;
+  /* padding: calc(var(--layout-spacing)/2); */
+
   border: yellow dashed 0.5px;
+  max-width: var(--menu-width-max);
+  min-height: var(--menu-height-min);
 
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  gap: 8px;
+  gap: var(--layout-spacing);
 
+}
+
+/* blue tab color mdn #072446 */
+
+.arrow {
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+/* .right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+} */
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
 /* -- Dropdown menu w/ tabs */
@@ -410,27 +400,30 @@ header>.container::before {
   }
  */
 
-header button {
-
-  padding: 0.5rem;
+.menubtn {
   background-color: inherit;
   border: none;
-  --font-family: Menlo, Roboto Mono, monospace;
   box-shadow: none;
+}
+
+
+.nav_end {
+  color: blue;
 }
 
 /* #endregion */
 
+
 /* #region ---  <main>  --- */
 
-/* Container for [aside] & [section] (full screen width) */
+/* Content container */
 main {
-  /* border: var(--border-width) dashed var(--code); */
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  padding-left: max(var(--layout-side-padding), var(--layout-side-padding-min));
+  padding-right: max(var(--layout-side-padding), var(--layout-side-padding-min));
+  min-height: 100vh;
   /* max-width: calc(100vw - 2rem); */
   /* max-width: 1400px; */
-  min-height: 100vh;
-
   position: relative;
   display: flex;
   flex-wrap: nowrap;
@@ -445,100 +438,76 @@ main::before {
   width: 100%;
   height: 100%;
 
-  /* background-image: url('../assets/images/tarkov/hideout-desk.jpg');
-  background-size: contain;
-  background-repeat: no-repeat; */
-
-  /* background-color: #181818;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23181818' stroke-width='.5' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cuse fill='%232b2b2b' href='%23s' y='2'/%3E%3Cuse fill='%232b2b2b' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23383838' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23383838' href='%23s'/%3E%3Cuse fill='%23434343' href='%23s' x='2'/%3E%3Cuse fill='%23434343' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%234c4c4c'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%234c4c4c'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23545454'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23181818'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%235b5b5b'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
-  background-attachment: fixed;
-  background-size: cover; */
-
-
+  /* background-image: url('../assets/images/tarkov/hideout-desk.jpg'); */
   opacity: 0.05;
   z-index: -1;
-
 }
 
-
-
 pre {
-  /* padding: 1rem 1.4rem; */
-  /* max-width: 100%; */
   overflow: auto;
   color: var(--preformatted);
 }
 
-/* Fix embedded code within pre */
+/* Embedded code blocks */
 code {
-  /* color: var(--preformatted); */
   color: var(--marked);
   font-family: var(--mono-font);
   font-size: var(--text-sz-l);
-  /* background: none; */
   padding: 0;
 }
 
-.muted {
-  /* font-size: 1rem; */
-  color: var(--text-light);
-}
-
-/* Classes for notices */
-.notice {
-  background: var(--accent-bg);
-  border: var(--border-width) solid var(--border);
-  border-radius: var(--standard-border-radius);
-  padding: 1.5rem;
-  margin: 2rem 0;
-}
+/* background-color: #181818;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23181818' stroke-width='.5' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cuse fill='%232b2b2b' href='%23s' y='2'/%3E%3Cuse fill='%232b2b2b' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23383838' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23383838' href='%23s'/%3E%3Cuse fill='%23434343' href='%23s' x='2'/%3E%3Cuse fill='%23434343' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%234c4c4c'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%234c4c4c'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23545454'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23181818'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%235b5b5b'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(50) translate(-980 -735)'%3E%3Cg fill='%23264463'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover; */
 
 /* #endregion */
+
 
 /* #region ---  <aside>  --- */
 
 /* The left-hand panel of main area */
 aside {
-  padding-top: 1rem;
   max-width: 25rem;
+  padding: var(--layout-gap);
+  border-left: var(--bg-accent) solid 0.5px;
   font-size: var(--text-sz-l);
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-left: var(--accent-bg) solid 0.5px;
+}
+
+.stack {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--layout-spacing);
 }
 
 .sideNav {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: flex;
   flex-direction: column;
-  padding-bottom: 1rem;
   gap: 0.1rem;
 }
 
+/* Aside buttons */
 .sideLink {
   margin: 0;
   font-size: var(--text-sz-xl);
-  border: var(--accent-bg) solid 0.5px;
-  padding: 0.5rem 1.5rem;
+  border: var(--bg-accent) solid 0.5px;
+  padding: 0.5rem 1rem;
   display: inline-flex;
   gap: 1rem;
   align-items: center;
-  /* background-color: rgb(41, 41, 41); */
-  background-color: var(--bg-mdn);
-
-  /* Accidentally centered the image AND text */
-  /* text-align: center; */
+  background-color: var(--bg);
 }
 
 aside button:hover {
   /* background-color: rgb(51, 51, 51); */
-  background-color: var(--bg-accent-mdn);
+  background-color: var(--bg-mdn-accent);
 }
 
 .sideLink img {
   width: 48px;
   height: 48px;
-  background-color: var(--accent-bg);
+  background-color: var(--bg-accent);
 }
 
 .sideLink span {
@@ -546,40 +515,43 @@ aside button:hover {
   font-family: monospace;
 }
 
+.stack>.tip {
+  line-height: calc(2 * var(--line-height));
+}
+
 aside textarea {
   min-height: 6rem;
   font-size: var(--text-sz-m);
-  border: var(--accent-bg) solid 0.5px;
+  border: var(--bg-accent) solid 0.5px;
   min-width: 100%;
 }
 
+.muted {
+  color: var(--text-light);
+}
+
 /* #endregion */
+
 
 /* #region --- <section>  --- */
 
 /* The right-hand panel of main area */
 section {
   /* Border between <aside> & <section> columns */
-  border-left: 0.5px solid var(--accent-bg);
-  border-right: 0.5px solid var(--accent-bg);
-  /* padding-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem; */
-  padding: 2rem 2rem;
-  font-size: var(--text-sz-l);
-  max-width: 1400px;
-  /* width: 100%; */
+  border-left: 0.5px solid var(--bg-accent);
+  border-right: 0.5px solid var(--bg-accent);
 
+  padding: var(--layout-gap);
+  font-size: var(--text-sz-l);
 }
 
 section .two_columns {
   display: flex;
   flex-basis: 50%;
   flex-grow: 1;
-  gap: 1rem;
-
-  padding-bottom: 2rem;
-  border-bottom: var(--accent-bg) solid 0.5px;
+  gap: var(--layout-spacing);
+  padding-bottom: var(--layout-spacing);
+  border-bottom: var(--bg-accent) solid 0.5px;
 }
 
 /* #region ---  Info Block  --- */
@@ -615,11 +587,11 @@ section .info_block ul {
 
 /* Use mono font for code elements */
 .kbd {
-  color: var(--preformatted);
+  color: var(--marked-muted);
   border: var(--border-width) solid var(--preformatted);
-  border-bottom: 3px solid var(--preformatted);
+  border-bottom: 2px solid var(--preformatted);
   border-radius: var(--standard-border-radius);
-  padding: 0.1rem 0.4rem;
+  padding: 1px 4px;
 }
 
 section .eye_candy {
@@ -629,7 +601,10 @@ section .eye_candy {
 
 /* #endregion ---  Info Block --- */
 
-/* #region ---  Tree View  --- */
+
+
+/* #endregion */
+
 
 section div.test summary {
   cursor: pointer;
@@ -641,237 +616,12 @@ section div.test summary {
 
 section div.test details[open]>summary {
   margin-bottom: 0.5rem;
-  /* border-bottom: var(--preformatted) solid var(--border-width); */
   background-color: var(--bg);
 }
 
 section div.test details[open]> :last-child {
   margin-bottom: 0;
-
 }
-
-section>div.treeView {
-  display: block;
-  margin-top: 2rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-right: 1rem;
-  background-color: var(--bg-accent-mdn);
-  color: var(--tree-text-clr);
-  /* max-width: 85%; */
-  max-width: fit-content;
-
-}
-
-/* Sets the padding of the FIRST <ul> of the tree close left
-against the div.  Otherwise it would be inherited by .tree ul 
-
-Add to this value to push to the right.  | --> (tree)    |
-*/
-/* div.treeView>ul {
-  padding-left: 0;
-} */
-
-.tree {
-  padding-left: 0;
-  --spacing: 1.5rem;
-  --radius: 10px;
-  --tree-border-clr: var(--text-light);
-  --tree-caret-clr: #696;
-  --tree-caret-last: #656;
-}
-
-.tree li {
-  display: block;
-  /* Makes the magic happen. (No circles without it) */
-  position: relative;
-  /* Old padding left calc( ... -2px). Not sure why but dont need it anymore */
-  padding-left: calc(2 * var(--spacing) - var(--radius) - 0px);
-
-  /* padding-top: 5px; */
-}
-
-.tree img {
-  vertical-align: middle;
-}
-
-/* Spaces every <ul> after the root to the right.
-Creates for a visible path to connect the nodes */
-.tree ul {
-  margin-left: calc(var(--radius) - var(--spacing));
-  padding-left: 0;
-  /* MAGIC PROPERTY: for height spacing the list */
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-/* Connects path to outer list-items */
-.tree ul li {
-  border-left: 2px solid var(--tree-border-clr);
-
-}
-
-/* Gets rid of little hanging border at the last item of each list */
-.tree ul li:last-child {
-  border-color: transparent;
-}
-
-/* Creates a line-path connecting all list-items */
-.tree ul li::before {
-
-  /* REMOVING this breaks the path */
-  content: '';
-
-  display: block;
-  position: absolute;
-  top: calc(var(--spacing) / -2);
-  left: -2px;
-  width: calc(var(--spacing) + 1px);
-  height: calc(var(--spacing) + 1px);
-  border: solid var(--tree-border-clr);
-  border-width: 0 0 2px 2px;
-}
-
-.tree summary {
-  display: block;
-  cursor: pointer;
-  padding-left: 4px;
-  /* margin-top: 0.5rem; */
-  /* padding-bottom: 0.5rem; */
-}
-
-.tree>ul::before {
-  /* z-index: 1; */
-  /* background: var(--tree-caret-clr) url('../src/assets/images/expand-collapse.svg') 0 0; */
-}
-
-.tree summary::marker,
-.tree summary::-webkit-details-marker {
-  display: none;
-}
-
-.tree summary:focus {
-  /* outline: none; */
-  /* background-color: rgba(60, 60, 60, 0.2); */
-  background: linear-gradient(90deg, rgba(30, 30, 30, 0.6), rgba(42, 42, 42, 0.4));
-}
-
-
-/* Create a round shape before each summary,
-and after each <li> */
-.tree li::after,
-.tree summary::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: calc(var(--spacing) / 2 - var(--radius));
-  left: calc(var(--spacing) - var(--radius) - 1px);
-  width: calc(2 * var(--radius));
-  height: calc(2 * var(--radius));
-  border-radius: 50%;
-
-  /* REMOVED this, no difference maybe? */
-  /* background-size: 100%; */
-
-  background-repeat: no-repeat;
-  background-position: 0px 0px;
-
-  /* NODE background color & img */
-  background: var(--img-tree-node);
-  /* background-color: var(--text); */
-  background-color: var(--tree-text-clr);
-}
-
-/* Adds a caret (+) to each list-item that contains a details element. */
-.tree summary::before {
-  z-index: 1;
-  background: var(--tree-caret-clr) var(--img-tree-open);
-}
-
-/* Changes caret to (-) when list-item is open */
-.tree details[open]>summary::before {
-  /* background: var(--img-tree-close); */
-  background-position: calc(-2 * var(--radius)) 0;
-}
-
-/* #endregion Tree View */
-
-/* #region ---  Card Panel  --- */
-
-section>.card_panel {
-
-  /* margin: 1rem 0.5rem; */
-  margin-top: 12px;
-  margin-bottom: 12px;
-
-  max-width: 1200px;
-  /* min-height: 800px; */
-  border: rgb(40, 40, 40) solid 1px;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex-shrink: 0;
-  align-items: center;
-
-  row-gap: 0px;
-  background: url('../assets/images/textured-brown.jpg');
-
-}
-
-/* .card_panel:first-child {
-  background-color: #0d47a1;
-} */
-
-.card_panel>.card {
-
-  margin-right: 8px;
-  margin-left: 8px;
-  margin-top: 16px;
-  margin-bottom: 16px;
-
-  max-width: 128px;
-
-  text-wrap-mode: wrap;
-  word-break: break-all;
-
-  /* background-color: #424242; */
-  background-color: rgba(42, 42, 42, 0.3);
-  color: rgb(180, 147, 77);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card_panel h2 {
-  display: block;
-  max-width: 128px;
-  text-wrap-mode: wrap;
-  word-break: break-word;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  font-size: 18px;
-}
-
-/* .card h2 {
-  text-wrap-mode: wrap;
-  word-break: break-word;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  font-size: 20px;
-} */
-
-.card img {
-  width: 128px;
-  height: 128px;
-  background-color: rgba(16, 16, 16, 0.6);
-}
-
-/* #endregion */
-
-/* #endregion */
-
 
 footer {
   margin-top: 2rem;
@@ -883,12 +633,27 @@ footer {
 }
 
 
-/* #region ---  @media  --- */
+/* #region ---  @media desktop (half-screen)  --- */
 
 /* Half full-screen size (1440p) */
 @media only screen and (max-width: 1000px) {
   header>.container {
     font-size: var(--text-sz-m);
+  }
+
+  .logo>img {
+    max-height: 48px;
+  }
+
+  .nav,
+  .nav_end,
+  .logo>img {
+    max-height: 48px;
+  }
+
+  .menubtn,
+  .arrow {
+    display: none;
   }
 
   main {
@@ -953,6 +718,9 @@ footer {
   }
 }
 
+/* #endregion */
+
+/* #region @media - Smarphones */
 
 /* Tablet / Smarphone screen size(s) */
 @media only screen and (max-width: 720px) {

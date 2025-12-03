@@ -11,6 +11,302 @@
 
 <body>
 
+  <div class="page">
+    <header>
+      <div class="container">
+        <div class="logo"></div>
+        <div class="nav_menu"></div>
+        <div class="nav_end"></div>
+      </div>
+    </header>
+    
+    <main>
+      <aside>
+        <div class="stack">
+          <!-- <h1>Links for navigation</h1> -->
+          <div class="sideNav">
+            <button id="global" class="sideLink">
+              <!-- data\SPT_Data\Server\images\handbook\EfT_UI_Icons_BigTrophy.png -->
+              <!-- data\SPT_Data\Server\images\handbook\icon_info.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook\icon_info.png"
+                width="32px" height="32px">
+              <span>Global Settings</span>
+            </button>
+            <button id="user" class="sideLink">
+              <!-- images/handbook/EfT_UI_Icons_DogTag.png -->
+              <!-- images\prestige\675864eb86778bc82004127c.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images\prestige\675864eb86778bc82004127c.png"
+                width="32px" height="32px"> <span>User Profile</span>
+            </button>
+            <button id="bots" class="sideLink">
+              <!-- data/SPT_Data/Server/images/quest/icon/5d69468a86f77452aa51d79d.png -->
+              <!-- data/SPT_Data/Server/images/handbook/icon_ammo.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_ammo.png"
+                width="32px" height="32px"> <span>Bots</span>
+            </button>
+            <button id="maps" class="sideLink">
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_maps.png"
+                alt="" width="32px" height="32px"> <span>Maps</span>
+              <!-- <img src="data/SPT_Data/Server/images/banners/norvinskzone.png"
+              width="32px" height="32px">Maps -->
+            </button>
+            <button id="loot" class="sideLink">
+              <!-- images/hideout/icon_hideout_videocardslots.png -->
+              <!-- data/SPT_Data/Server/images/handbook/icon_money.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_money.png"
+                width="32px" height="32px"> <span>Loot</span>
+            </button>
+            <button id="traders" class="sideLink">
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/trader/avatar/5a7c2ebb86f7746e324a06ab.png"
+                width="32px" height="32px"> <span>Traders</span>
+            </button>
+            <button id="quests" class="sideLink">
+              <!-- images/quest/icon/59c26dd986f77427033c3e83.png -->
+              <!-- images/handbook/icon_quest.png -->
+              <!-- data/SPT_Data/Server/images/handbook/icon_spec.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_spec.png"
+                alt="" width="32px" height="32px"> <span>Quests</span>
+            </button>
+            <button id="hideout" class="sideLink">
+              <!-- data/SPT_Data/Server/images/handbook/icon_barter_energy.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_barter_energy.png"
+                alt="" width="32px" height="32px"> <span>Hideout</span>
+            </button>
+          </div>
+
+          <label for="search"> Search area: (optional)
+          </label>
+
+          <textarea id="search" class="text"
+            placeholder="Find a value or property within the loaded document."></textarea>
+
+          <div class="tip muted">
+            Tip: <span class="kbd">Ctrl</span> + <span class="kbd">S</span> to
+            save,
+            <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> to
+            run.
+          </div>
+        </div>
+      </aside>
+      
+      <section class="content">
+        
+        <div class="card_panel">
+          <div class="card">
+            <h2>Killa</h2>
+            <img src="./src/assets/images/tarkov/figurines/killa_fig.webp"
+              alt="">
+          </div>
+          <div class="card">
+            <h2>Reshala</h2>
+            <img src="./src/assets/images/tarkov/figurines/reshala_fig.webp"
+              alt="">
+          </div>
+          <div class="card">
+            <h2>USEC</h2>
+            <img src="./src/assets/images/tarkov/figurines/usec_fig.webp"
+              alt="">
+          </div>
+          <div class="card">
+            <h2>Scav</h2>
+            <img src="./src/assets/images/tarkov/figurines/scav_fig.webp"
+              alt="">
+          </div>
+          <div class="card">
+            <h2>Tagilla</h2>
+            <img src="./src/assets/images/tarkov/figurines/tagilla_fig.webp"
+              alt="">
+          </div>
+          <div class="card">
+            <h2>Cultist</h2>
+            <img src="./src/assets/images/tarkov/figurines/cultist_fig.webp"
+              alt="">
+          </div>
+          <div class="card">
+            <h2>Vengeful Killa</h2><img
+              src="https://assets.tarkov.dev/vengeful-killa-portrait.webp">
+          </div>
+        </div>
+        
+        
+        <div class="treeView">
+
+          <ul class="tree">
+            <li>
+              <details open>
+                <summary> Bosses
+                </summary>
+                <ul>
+                  <li>
+                    <details>
+                      <summary>Killa</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Sanitar</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Meds</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Reshala</summary>
+                      <ul>
+                        <li>Inventory</li>
+                        <li>Equipment</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Glukhar</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Knight</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Big Pipe</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Birdeye</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Cultist Priest</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Glukhar</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Kaban</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Kollontay</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Partisan</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Shturman</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Tagilla</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>Zryachiy</summary>
+                      <ul>
+                        <li>Health</li>
+                        <li>Difficulty</li>
+                      </ul>
+                    </details>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Regular Scavs</summary>
+                <ul>
+                  <li>Scav</li>
+                  <li>Marksman</li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
+        
+      </section>
+    </main>
+    
+    <footer>
+      <p>Created by: ohs-dev<br>
+        Source: <a
+          href="https://github.com/ohs-dev/spt-config.git">https://github.com/ohs-dev/spt-config.git</a>
+      </p>
+    </footer>
+  </div>
+  
+          
 
 
   <script src='../scripts/BotConfig.js'>

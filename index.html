@@ -11,138 +11,168 @@
 
 <body>
   <div class="page">
-    <div class="layout">
 
-      <header>
+    <header>
 
-        <div class="container">
+      <div class="container">
 
-          <div class="brand">
-            <img src="./src/assets/images/tarkov/spt-logo-grey.png"
-              height="auto" width="auto" alt="SPT-Logo" title="SPT Logo" />
-            <!-- <img src="./src/assets/images/tarkov/icon.ico" height="48px"
-          width="48px" alt="spt" /> -->
-            <!-- <h4>Single Player Tarkov</h4> -->
-          </div>
+        <div class="logo">
+          <img src="./src/assets/images/tarkov/spt-logo-alt.png" alt="SPT-Logo"
+            title="SPT Logo"></img>
+        </div>
 
-          <div class="title">
-            <!-- <h4>SPTarkov easy profile editor</h4> -->
-          </div>
-          <div class="nav menu">
-            <button id="menu_settings">Settings</button>
-            <button id="menu_bosses">Bosses</button>
-            <button id="menu_traders">Traders</button>
-            <button id="menu_maps">Maps</button>
-            <button id="menu_loot">Loot</button>
-            <button id="menu_quests">Quests</button>
-            <button id="menu_profile">Profile</button>
-          </div>
+        <div class="nav">
+          <button class="menubtn" id="nav_globals">
+            <i class="arrow down"></i>
+            Global Settings
+          </button>
 
-          <div class="menu end">
-            <!-- <button class="btn secondary" id="saveBtn" title="Save file"
+          <button class="menubtn" id="nav_ai">
+            <i class="arrow down"></i>
+            Enemy Bot AI
+          </button>
+          <button class="menubtn" id="nav_traders">
+            <i class="arrow down"></i>
+            Traders
+          </button>
+          <button class="menubtn" id="nav_maps">
+            <i class="arrow down"></i>
+            Maps
+          </button>
+          <button class="menubtn" id="nav_equipment">
+            <i class="arrow down"></i>
+            Equipment
+          </button>
+          <button class="menubtn" id="nav_loot">
+            <i class="arrow down"></i>
+            Loot
+          </button>
+          <button class="menubtn" id="nav_quests">
+            <i class="arrow down"></i>
+            Quests
+          </button>
+          <button class="menubtn" id="nav_profile">
+            <i class="arrow down"></i>
+            User Profile
+          </button>
+        </div>
+
+        <div class="nav_end">
+          <!-- <button class="btn secondary" id="saveBtn" title="Save file"
               onclick="saveFile()"><span>Save</span></button>
             <button class="btn secondary" id="loadBtn" title="Open data"
               onclick="openFile()"><span>Load</span></button> -->
-              <svg width="64px" height="64px" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#dcdcdc"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g clip-path="url(#cfcfcfclip0_429_11066)"> <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21" stroke="#cfcfcf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path> </g> <defs> <clipPath id="clip0_429_11066"> <rect width="24" height="24" fill="white" transform="translate(0 0.000915527)"></rect> </clipPath> </defs> </g></svg>
-              
-            <input type="file" id="openFile" accept="application/json" hidden>
-          </div>
+          <svg width="64px" height="64px" viewBox="-2.4 -2.4 28.80 28.80"
+            fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#dcdcdc">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+              stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <g clip-path="url(#cfcfcfclip0_429_11066)">
+                <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21"
+                  stroke="#cfcfcf" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_429_11066">
+                  <rect width="24" height="24" fill="white"
+                    transform="translate(0 0.000915527)"></rect>
+                </clipPath>
+              </defs>
+            </g>
+          </svg>
         </div>
 
-      </header>
+      </div>
 
-      <main>
+    </header>
 
-        <aside>
-          <div class="stack">
-            <!-- <h1>Links for navigation</h1> -->
-            <div class="sideNav">
-              <button id="global" class="sideLink">
-                <!-- data\SPT_Data\Server\images\handbook\EfT_UI_Icons_BigTrophy.png -->
-                <!-- data\SPT_Data\Server\images\handbook\icon_info.png -->
-                <img
-                  src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook\icon_info.png"
-                  width="32px" height="32px">
-                <span>Global Settings</span>
-              </button>
-              <button id="user" class="sideLink">
-                <!-- images/handbook/EfT_UI_Icons_DogTag.png -->
-                <!-- images\prestige\675864eb86778bc82004127c.png -->
-                <img
-                  src="./src/assets/spt/3.11.3/SPT_Data/Server/images\prestige\675864eb86778bc82004127c.png"
-                  width="32px" height="32px"> <span>User Profile</span>
-              </button>
-              <button id="bots" class="sideLink">
-                <!-- data/SPT_Data/Server/images/quest/icon/5d69468a86f77452aa51d79d.png -->
-                <!-- data/SPT_Data/Server/images/handbook/icon_ammo.png -->
-                <img
-                  src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_ammo.png"
-                  width="32px" height="32px"> <span>Bots</span>
-              </button>
-              <button id="maps" class="sideLink">
-                <img
-                  src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_maps.png"
-                  alt="" width="32px" height="32px"> <span>Maps</span>
-                <!-- <img src="data/SPT_Data/Server/images/banners/norvinskzone.png"
+    <main>
+
+      <aside>
+        <div class="stack">
+          <!-- <h1>Links for navigation</h1> -->
+          <div class="sideNav">
+            <button id="global" class="sideLink">
+              <!-- data\SPT_Data\Server\images\handbook\EfT_UI_Icons_BigTrophy.png -->
+              <!-- data\SPT_Data\Server\images\handbook\icon_info.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook\icon_info.png"
+                width="32px" height="32px">
+              <span>Global Settings</span>
+            </button>
+            <button id="user" class="sideLink">
+              <!-- images/handbook/EfT_UI_Icons_DogTag.png -->
+              <!-- images\prestige\675864eb86778bc82004127c.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images\prestige\675864eb86778bc82004127c.png"
+                width="32px" height="32px"> <span>User Profile</span>
+            </button>
+            <button id="bots" class="sideLink">
+              <!-- data/SPT_Data/Server/images/quest/icon/5d69468a86f77452aa51d79d.png -->
+              <!-- data/SPT_Data/Server/images/handbook/icon_ammo.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_ammo.png"
+                width="32px" height="32px"> <span>Bots</span>
+            </button>
+            <button id="maps" class="sideLink">
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_maps.png"
+                alt="" width="32px" height="32px"> <span>Maps</span>
+              <!-- <img src="data/SPT_Data/Server/images/banners/norvinskzone.png"
               width="32px" height="32px">Maps -->
-              </button>
-              <button id="loot" class="sideLink">
-                <!-- images/hideout/icon_hideout_videocardslots.png -->
-                <!-- data/SPT_Data/Server/images/handbook/icon_money.png -->
-                <img
-                  src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_money.png"
-                  width="32px" height="32px"> <span>Loot</span>
-              </button>
-              <button id="traders" class="sideLink">
-                <img
-                  src="./src/assets/spt/3.11.3/SPT_Data/Server/images/trader/avatar/5a7c2ebb86f7746e324a06ab.png"
-                  width="32px" height="32px"> <span>Traders</span>
-              </button>
-              <button id="quests" class="sideLink">
-                <!-- images/quest/icon/59c26dd986f77427033c3e83.png -->
-                <!-- images/handbook/icon_quest.png -->
-                <!-- data/SPT_Data/Server/images/handbook/icon_spec.png -->
-                <img
-                  src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_spec.png"
-                  alt="" width="32px" height="32px"> <span>Quests</span>
-              </button>
-              <button id="hideout" class="sideLink">
-                <!-- data/SPT_Data/Server/images/handbook/icon_barter_energy.png -->
-                <img
-                  src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_barter_energy.png"
-                  alt="" width="32px" height="32px"> <span>Hideout</span>
-              </button>
-            </div>
-
-            <label for="testArea"> Search area: (optional)
-            </label>
-
-            <textarea id="testArea" class="text"
-              placeholder="Find a value or property within the loaded document."></textarea>
-
-            <div class="muted">
-              Tip: <span class="kbd">Ctrl</span> + <span class="kbd">S</span> to
-              save,
-              <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> to
-              run.
-            </div>
+            </button>
+            <button id="loot" class="sideLink">
+              <!-- images/hideout/icon_hideout_videocardslots.png -->
+              <!-- data/SPT_Data/Server/images/handbook/icon_money.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_money.png"
+                width="32px" height="32px"> <span>Loot</span>
+            </button>
+            <button id="traders" class="sideLink">
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/trader/avatar/5a7c2ebb86f7746e324a06ab.png"
+                width="32px" height="32px"> <span>Traders</span>
+            </button>
+            <button id="quests" class="sideLink">
+              <!-- images/quest/icon/59c26dd986f77427033c3e83.png -->
+              <!-- images/handbook/icon_quest.png -->
+              <!-- data/SPT_Data/Server/images/handbook/icon_spec.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_spec.png"
+                alt="" width="32px" height="32px"> <span>Quests</span>
+            </button>
+            <button id="hideout" class="sideLink">
+              <!-- data/SPT_Data/Server/images/handbook/icon_barter_energy.png -->
+              <img
+                src="./src/assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_barter_energy.png"
+                alt="" width="32px" height="32px"> <span>Hideout</span>
+            </button>
           </div>
 
-          <div class="treeBrowser">
-            <pre><code>-> Globals
-  -> Health
-    -> Head HP</code></pre>
-          </div>
-        </aside>
+          <label for="search"> Search area: (optional)
+          </label>
 
-        <section class="content">
-          <!-- Divides main page content into 2 columns. L(image), R(text block) -->
-          <div class="two_columns">
-            <p><img class="eye_candy"
-                src="./src/assets/images/tarkov/eft-art.avif" alt=""></p>
-            <div class="info_block">
-              <h1>Get Started!</h1>
-              <!-- <p>Click the <span class="kbd">Load</span> button to get started
+          <textarea id="search" class="text"
+            placeholder="Find a value or property within the loaded document."></textarea>
+
+          <div class="tip muted">
+            Tip: <span class="kbd">Ctrl</span> + <span class="kbd">S</span> to
+            save,
+            <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> to
+            run.
+          </div>
+        </div>
+      </aside>
+
+      <section class="content">
+        <!-- Divides main page content into 2 columns. L(image), R(text block) -->
+        <div class="two_columns">
+          <p><img class="eye_candy"
+              src="./src/assets/images/tarkov/eft-art.avif" alt=""></p>
+          <div class="info_block">
+            <h1>Get Started!</h1>
+            <!-- <p>Click the <span class="kbd">Load</span> button to get started
             making changes to your <span class="spt"><a
                 href="https://sp-tarkov.com/"><img
                   src="./src/assets/images/spt-logo-grey.png"
@@ -151,243 +181,47 @@
             the version with the profile you wish to configure.</p>
             <p>For more information about SPTarkov check out the installation
             guide <a href="https://sp-tarkov.com/">here</a>.</p> -->
-              <ul class="no-deco">
-                <li>Click the <span class="kbd">Load</span> button to get
-                  started
-                  making changes to your <span class="spt"><a
-                      href="https://sp-tarkov.com/"><img
-                        src="./src/assets/images/tarkov/icon.ico"
-                        alt="Single Player Tarkov"></a></span> save
-                  files. </li>
-                <li>If you have multiple SPT versions installed, please select
-                  the version with the profile you wish to configure.</li>
-                <li>For more information about SPTarkov check out the
-                  installation
-                  guide <a href="https://sp-tarkov.com/">here</a>.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="treeView">
-
-            <ul class="tree">
-              <li>
-                <details open>
-                  <summary> Bosses
-                  </summary>
-                  <ul>
-                    <li>
-                      <details>
-                        <summary>Killa</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Sanitar</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Meds</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Reshala</summary>
-                        <ul>
-                          <li>Inventory</li>
-                          <li>Equipment</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Glukhar</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Knight</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Big Pipe</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Birdeye</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Cultist Priest</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Glukhar</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Kaban</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Kollontay</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Partisan</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Shturman</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Tagilla</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                    <li>
-                      <details>
-                        <summary>Zryachiy</summary>
-                        <ul>
-                          <li>Health</li>
-                          <li>Difficulty</li>
-                        </ul>
-                      </details>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <details>
-                  <summary>Regular Scavs</summary>
-                  <ul>
-                    <li>Scav</li>
-                    <li>Marksman</li>
-                  </ul>
-                </details>
-              </li>
+            <ul class="no-deco">
+              <li>Click the <span class="kbd">Load</span> button to get
+                started
+                making changes to your <span class="spt"><a
+                    href="https://sp-tarkov.com/"><img
+                      src="./src/assets/images/tarkov/icon.ico"
+                      alt="Single Player Tarkov"></a></span> save
+                files. </li>
+              <li>If you have multiple SPT versions installed, please select
+                the version with the profile you wish to configure.</li>
+              <li>For more information about SPTarkov check out the
+                installation
+                guide <a href="https://sp-tarkov.com/">here</a>.</li>
             </ul>
           </div>
+        </div>
 
-          <div class="card_panel">
-            <div class="card">
-              <h2>Killa</h2>
-              <img src="./src/assets/images/tarkov/figurines/killa_fig.webp"
-                alt="">
-            </div>
-            <div class="card">
-              <h2>Reshala</h2>
-              <img src="./src/assets/images/tarkov/figurines/reshala_fig.webp"
-                alt="">
-            </div>
-            <div class="card">
-              <h2>USEC</h2>
-              <img src="./src/assets/images/tarkov/figurines/usec_fig.webp"
-                alt="">
-            </div>
-            <div class="card">
-              <h2>Scav</h2>
-              <img src="./src/assets/images/tarkov/figurines/scav_fig.webp"
-                alt="">
-            </div>
-            <div class="card">
-              <h2>Tagilla</h2>
-              <img src="./src/assets/images/tarkov/figurines/tagilla_fig.webp"
-                alt="">
-            </div>
-            <div class="card">
-              <h2>Cultist</h2>
-              <img src="./src/assets/images/tarkov/figurines/cultist_fig.webp"
-                alt="">
-            </div>
-            <div class="card">
-              <h2>Vengeful Killa</h2><img
-                src="https://assets.tarkov.dev/vengeful-killa-portrait.webp">
-            </div>
-          </div>
-
-          <div class="test">
-            <details>
-              <summary>Interesting Object</summary>
-              <code>body {
+        <div class="test">
+          <details>
+            <summary>Interesting Object</summary>
+            <code>body {
               color: var(--text);
               background: var(--bg);
               font-size: 1.15rem;
               line-height: 1.5;
               margin: 0;
             }</code>
-            </details>
-          </div>
+          </details>
+        </div>
 
-        </section>
+      </section>
 
-      </main>
+    </main>
 
-      <footer>
-        <p>Created by: ohs-dev<br>
-          Source: <a
-            href="https://github.com/ohs-dev/spt-config.git">https://github.com/ohs-dev/spt-config.git</a>
-        </p>
-      </footer>
+    <footer>
+      <p>Created by: ohs-dev<br>
+        Source: <a
+          href="https://github.com/ohs-dev/spt-config.git">https://github.com/ohs-dev/spt-config.git</a>
+      </p>
+    </footer>
 
-    </div>
   </div>
 </body>
 <script>
@@ -400,6 +234,20 @@
       this.classList.toggle("caret-down");
     });
   } */
+
+
+  const hdr = document.querySelector('header');
+  console.log('header width: ', hdr.clientWidth);
+  console.log('header height: ', hdr.clientHeight);
+
+  const ctr = document.querySelector('div.container');
+  console.log('container-w: ', ctr.clientWidth);
+  console.log('container-h: ', ctr.clientHeight);
+
+  const nv = document.querySelector('div.nav');
+  console.log('nav_menu width: ', nv.clientWidth);
+  console.log('nav_menu height: ', nv.clientHeight);
+
 
 
 
