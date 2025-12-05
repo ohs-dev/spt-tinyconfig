@@ -66,13 +66,13 @@ export const BotNames = [
 
 /* A list of EFT internal bot names with common name */
 export enum BotCommonNames {
-  "assault" = "Scav",
+  assault = "Scav",
   // "arenafighter" = "Arena Scav",
-  "arenafighterevent" = "Smuggler",
-  "bear" = "Bear PMC",
-  "bossboar" = "Kaban",
-  "bossboarsniper" = "Boar sniper guard",
-  "bossbully" = "Reshala",
+  arenafighterevent = "Smuggler",
+  bear = "Bear PMC",
+  bossboar = "Kaban",
+  bossboarsniper = "Boar sniper guard",
+  bossbully = "Reshala",
   "bossgluhar" = "Gluhkar",
   "bosskilla" = "Killa",
   "bossknight" = "Knight",

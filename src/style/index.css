@@ -51,6 +51,7 @@
 
   --border: #898EA4;
   --menu-border: #f5f7ff;
+  --content-border: #3f3f3f;
 
   --text: #212121;
   --text-light: #585858;
@@ -595,7 +596,7 @@ footer {
   color: var(--text-light);
   font-size: 0.9rem;
   text-align: center;
-  border-top: var(--border-width) solid var(--preformatted);
+  border-top: var(--border-width) solid var(--content-border);
 }
 
 

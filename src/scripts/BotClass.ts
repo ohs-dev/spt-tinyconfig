@@ -2,22 +2,10 @@ import { BotCommonNames } from "../models/enums/BotNames.js";
 import type { IBodyPart, IBotType, IBotTypeSkills, IDifficultySetting, IChanceEquipment, IChanceWeaponMods, IExperience, IInventoryAmmo, IInventoryEquipment, IInventoryItems, IInventoryMods, IChanceEquipmentMods, IItemGen, IItemWeights, IChanceType, IDifficultyType } from "../models/spt/IBotType.js";
 import type { MinMax } from "../models/MinMax.js";
 import { readJSONFile } from "./utils.js";
+import * as NodePath from "node:path";
 
 
 export class EFTBot {
-
-  // ## Private and protected members in classes ##
-  // -----------------------------------------------------------------
-  // Private and protected members in a class affect their compatibility. 
-  //
-  // When an instance of a class is checked for compatibility, if /the target 
-  //   type contains a private member, then the source type must also contain 
-  //   a private member that originated from the same class. 
-  // 
-  // Likewise, the same applies for an instance with a protected member. This 
-  //   allows a class to be assignment compatible with its `super` class, 
-  //   but not with classes from a different inheritance hierarchy which 
-  //   otherwise have the same shape.
 
   // ##  Bot Preset (DO NOT MODIFY)  ##
   // --------------------------------------------------------
@@ -28,99 +16,36 @@ export class EFTBot {
   protected readonly _botPresetPath: string;
 
   // Bot Configurable Settings Data
-  /* private */
-  public _botPrototype: IBotType;
-  public _settings: IBotType;
-  public _name: string;
-  public _role: string;
+  private _botPrototype: IBotType;
+  private _settings: IBotType;
+  private _filename: string;
+  private _name: string;
+  private _role: string;
 
-  // Difficulty
-  //private _normal: IDifficultySetting;
-  //private _easy: IDifficultySetting;
-  //private _hard: IDifficultySetting;
-  //private _impossible: IDifficultySetting;
-
-  // Skill settings
-  //private _skillSettings: IBotTypeSkills;
-
-  // Chances
-  // private _chanceEquipment: IChanceEquipment;
-  // private _chanceWeaponMods: IChanceWeaponMods;
-  // private _chanceEquipmentMods: IChanceEquipmentMods;
-
-  // Inventory
-  //private _inventory: IInventory;
-  //private _inventoryAmmo: IInventoryAmmo;
-  //private _inventoryEquipment: IInventoryEquipment;
-  //private _inventoryItems: IInventoryItems;
-  //private _inventoryMods: IInventoryMods;
-
-  // Experience
-  //private _experience: IExperience;
-
-  // TODO fix missing `type?: string` errors
   constructor(
-    path: string,
-    type?: string
+    path: string
   ) {
-
-    // Details
     this._botPresetPath = path;
 
     // Data 
-    this._botPresetType = readJSONFile(path) as IBotType;
+    this._botPresetType = JSON.parse(readJSONFile(path)) as IBotType;
     this._botPrototype = structuredClone(this._botPresetType) as IBotType;
-
-    // Difficulty
-    //this._normal = this._botPrototype.difficulty.normal;
-    //this._easy = this._botPrototype.difficulty.easy;
-    //this._hard = this._botPrototype.difficulty.easy;
-    //this._impossible = this._botPrototype.difficulty.easy;
-
-    // Chance
-    //this._chanceEquipment = this._botPrototype.chances.equipment;
-    //this._chanceWeaponMods = this._botPrototype.chances.weaponMods;
-    //this._chanceEquipmentMods = this._botPrototype.chances.equipmentMods;
-
-    // Inventory
-    //this._inventoryAmmo = this._botPrototype.inventory.Ammo;
-    //this._inventoryEquipment = this._botPrototype.inventory.equipment;
-    //this._inventoryItems = this._botPrototype.inventory.items;
-    //this._inventoryMods = this._botPrototype.inventory.mods
-
     this._settings = this._botPrototype;
 
-    // Skills
-    //this._skillSettings = this._botPrototype.skills;
-
-    // XP
-    //this._experience = this._botPrototype.experience;
-
-    // default bot name & role
-    this._name = "Scav";
-    this._role = "assault";
-
-    // Name/Role
-    if (type) {
-
-      // assign name & role
-      this._name = BotCommonNames[type as keyof typeof BotCommonNames];
-      this._role = type;
-    }
+    // Filename & role
+    this._filename = path.slice(path.lastIndexOf('/'), path.length - 1)
+    this._role = this._filename.slice(0, this._filename.lastIndexOf('.'));
+    if (this._role in BotCommonNames) {
+      this._name = BotCommonNames[this._role as keyof typeof BotCommonNames];
+    } else this._name = "Scav";
   }
 
   public get Name() {
     return this._name;
   }
-  public set Name(n: string) {
-    this._name = n;
-  }
 
   public get Role(): string {
     return this._role;
-  }
-  public set Role(r: string) {
-    this._role = r;
   }
 
   public get Settings() {
@@ -233,39 +158,6 @@ export class EFTBot {
   // END OF CLASS
 }
 
-
-
-
-// Check if param matches any key in this._botPrototype.Difficulty
-export function isKeyOf(key: any, obj: any) {
-
-  if (key in obj) {
-    return key as typeof obj;
-  } else {
-    return undefined;
-  }
-}
-
-export function isTypeOf(a: any, b: any): boolean {
-  if (typeof a === typeof b && a != null && b != null) {
-    return true;
-  } else {
-    return false
-  }
-}
-
-
-type Fish = { swim: () => void };
-type Bird = { fly: () => void };
-type Human = { swim?: () => void; fly?: () => void };
-
-function move(animal: Fish | Bird | Human) {
-  if ("swim" in animal) {
-    animal; // (parameter) animal: Fish | Human
-  } else {
-    animal; // (parameter) animal: Bird | Human
-  }
-}
 
 /* 
 export interface IDifficultyCategories {
