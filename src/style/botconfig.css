@@ -24,6 +24,10 @@
 
   --aside-width: max(var(--aside-width-min), calc(100vw - var(--layout-width)));
 
+  /*  Elmnt       Max-size   */
+  /*  aside-max   250px   */
+  /*   main-max   1000px  */
+
   /* Padding on the sides of the page content */
   --layout-spacing: 1rem;
 
@@ -94,12 +98,12 @@
   /* #region ##  Text/Headers  ## */
   --text-h1-l: 2.5rem;
   --text-h2-l: 2rem;
-  --text-h3-l: 1.5rem;
+  --text-h3-l: 22px;
   --text-h4-l: 1.25rem;
 
   --text-h1-m: 2rem;
   --text-h2-m: 1.5rem;
-  --text-h3-m: 1.2rem;
+  --text-h3-m: 20px;
   --text-h4-m: 1.1rem;
 
   /* Standard text */
@@ -266,7 +270,8 @@ h2 {
 }
 
 h3 {
-  font-size: var(--text-h3-l);
+  /* font-size: var(--text-h3-l); */
+  font-size: 22px;
   /* margin-top: 3rem; */
 }
 
@@ -574,34 +579,48 @@ section {
   border-left: 0.5px solid var(--bg-accent);
   border-right: 0.5px solid var(--bg-accent);
 
+  /* Disable this later to get rid of side gaps */
   padding: var(--layout-gap);
   font-size: var(--text-sz-l);
-
-  /* Code block editor */
-  /* background: linear-gradient(180deg, var(--tut-body-bg), var(--tut-bg) 35%); */
 }
-
-/* Button - action */
-.action {}
 
 /* #endregion */
 
 
 /* #region ---  Tab Panels  --- */
 
-/*  Elmnt  Size   */
-/*  aside  250px   */
-/*   main  1000px  */
+.panel {
+  width: 100%;
+  /* padding-bottom: var(--layout-gap); */
+  border-bottom: var(--bg-accent) solid 0.5px;
+  border-top: var(--bg-accent) solid 0.5px;
+  margin-bottom: var(--layout-gap);
+}
 
 .title-wrap {
-  width: 100%;
-  align-items: center;
-
-  display: grid;
-  grid-template-columns: auto 120px 120px 120px;
-  gap: 5px 10px;
   padding: var(--layout-gap) 0;
   border-bottom: var(--bg-accent) solid 0.5px;
+}
+
+.panel h3,
+.title-wrap h3,
+.diff-wrap h3,
+.setting-wrap h3,
+.ed-label h3 {
+  padding-left: var(--layout-gap);
+}
+
+.title-grid,
+.diff-grid,
+.setting-grid,
+.ed-label {
+  padding-right: var(--layout-gap);
+}
+
+.title-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr [col-start]);
+  gap: 5px 5px;
 }
 
 .title-wrap span {
@@ -611,13 +630,11 @@ section {
 
 .diff-wrap {
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
   padding: var(--layout-gap) 0;
   border-bottom: var(--bg-accent) solid 0.5px;
 }
 
-.diff-wrap>.btn-grid {
+.diff-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr [col-start]);
   gap: 5px 5px;
@@ -625,35 +642,54 @@ section {
 
 .tab-wrap {
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
   padding: var(--layout-gap) 0;
   border-bottom: var(--bg-accent) solid 0.5px;
 }
 
-.tab-grid {
+.setting-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr [col-start]);
   column-gap: 5px;
   row-gap: 5px;
 }
 
-.btn,
-.tab,
-.action,
-.select,
-.title-wrap button {
-  font-family: monospace;
-  min-height: 32px;
-  min-width: 100px;
+.label-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr [col-start]);
+  column-gap: 5px;
+  row-gap: 5px;
 }
 
+.btn:hover,
+.tab:hover,
+.action:hover {
+  background-color: var(--bg-mdn-accent);
+}
+
+/* Sets active tab button color = green */
 .tab.active {
   color: var(--text-hp);
-  /* background: linear-gradient(180deg rgba(125, 211, 252, 0.18), rgba(96, 165, 250, 0.18)); */
   background: linear-gradient(180deg, var(--bg-accent), rgba(50, 160, 90, 0.3));
 }
 
+button.btn,
+button.action,
+button.tab {
+  margin: 0;
+  border: none;
+  font-family: monospace;
+  min-height: 32px;
+  min-width: 100px;
+  /* margin: 4px; */
+  padding: 4px;
+  color: var(--text-hp);
+  background-color: var(--bg-mdn);
+}
+
+
+/* #endregion */
+
+/* #region ---  Editors  --- */
 
 .editor-wrap {
   position: relative;
@@ -661,7 +697,7 @@ section {
   border-radius: 14px;
   overflow: hidden;
   min-height: 280px;
-  background-color: #0b1020;
+  background-color: #0b1015;
 }
 
 .editor {
@@ -669,59 +705,7 @@ section {
   block-size: 380px;
 }
 
-iframe.preview {
-  inline-size: 100%;
-  block-size: 380px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  background-color: var(--text-hp);
-}
-
-
-.btnFace {
-  font-family: monospace;
-  color: var(--text-hp);
-}
-
-.btn {
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 0px;
-  color: var(--text-hp);
-  background-color: var(--bg-mdn);
-
-  /* background: inherit; */
-}
-
-button.tab {
-  /* margin: 4px; */
-  padding: 4px;
-  border: none;
-  color: var(--text-hp);
-  background-color: var(--bg-mdn);
-}
-
-.action {}
-
-.select {
-
-  border: none;
-
-
-}
-
-.btn.ok {
-  padding: 5px;
-}
-
-
-
-
-
-
 /* #endregion */
-
 
 /* #region ---  Card Panel  --- */
 
@@ -804,13 +788,6 @@ button.tab {
 
 /* #endregion */
 
-textarea.settings {
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--code);
-  height: 80vh;
-  width: min(calc(100vw - 15rem - 4*var(--layout-gap)), 1000px);
-}
 
 footer {
   margin-top: 2rem;

@@ -1,6 +1,9 @@
 # Modules
 node_modules/*
 
+# Log files
+app_log.json
+
 # CSS example file
 style/simple.css
 
@@ -9,9 +12,12 @@ data/SPT_Data/*
 
 # Test files
 test/*
+ace/*
 
 # SPT assets
 src/assets/spt
 
 # Distribution files
 /dist/*
+
+

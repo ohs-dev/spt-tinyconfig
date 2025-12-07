@@ -5,7 +5,7 @@ import type { ILooseLoot } from '../models/spt/ILooseLoot.js';
  * @param name {string}  name of the bot
  * @returns `IBotType`
  */
-export declare function getBotType(name: string, path: string, version?: string): IBotType | undefined;
+export declare function getBotType(path: string, name?: string, version?: string): IBotType | undefined;
 /** Gets bot details for each bot name in an array.
  * @param names {Array<string>} An array of bot names. Should NOT include file extension (.json)
  * @param path {string} Path to the bot types base folder. Ex: './SPT_Data/Server/database/bots/types/'

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta charset='utf-8'>
+  <title>SPT Settings Tool</title>
+  <link rel='stylesheet' type='text/css' media='screen'
+    href='../style/codeeditor.css'>
+</head>
+
+<body>
+  <div class="page">
+
+    <header>
+      <div class="menu-wrap row align-c just-sb">
+        <div class="logo align-c just-self-s">
+          <img class="v-align" src="../assets/images/tarkov/spt-logo-alt.png"
+            alt="SPT-Logo" title="SPT Logo"></img>
+        </div>
+
+        <div class="menu-hdr row align-c just-sb">
+          <button onclick="" class="menu-btn" id="nav_globals">
+            <i class="arrow down"></i>
+            Globals
+          </button>
+
+          <button class="menu-btn" id="nav_ai">
+            <i class="arrow down"></i>
+            Bot AI
+          </button>
+          <button class="menu-btn" id="nav_traders">
+            <i class="arrow down"></i>
+            Traders
+          </button>
+          <button class="menu-btn" id="nav_maps">
+            <i class="arrow down"></i>
+            Maps
+          </button>
+          <button class="menu-btn" id="nav_equipment">
+            <i class="arrow down"></i>
+            Equipment
+          </button>
+          <button class="menu-btn" id="nav_loot">
+            <i class="arrow down"></i>
+            Loot
+          </button>
+          <button class="menu-btn" id="nav_quests">
+            <i class="arrow down"></i>
+            Quests
+          </button>
+          <button class="menu-btn" id="nav_profile">
+            <i class="arrow down"></i>
+            Profile
+          </button>
+        </div>
+
+        <div class="menu-hb align-c just-self-e">
+          <svg width="64px" height="64px" viewBox="-2.4 -2.4 28.80 28.80"
+            fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#dcdcdc">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+              stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <g clip-path="url(#cfcfcfclip0_429_11066)">
+                <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21"
+                  stroke="#cfcfcf" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_429_11066">
+                  <rect width="24" height="24" fill="white"
+                    transform="translate(0 0.000915527)"></rect>
+                </clipPath>
+              </defs>
+            </g>
+          </svg>
+        </div>
+
+      </div>
+    </header>
+
+    <main>
+
+      <aside>
+        <aside>
+          <div class="stack panel">
+            <!-- <h1>Links for navigation</h1> -->
+            <div class="sideNav">
+              <button id="global" class="sideLink">
+                <!-- data\SPT_Data\Server\images\handbook\EfT_UI_Icons_BigTrophy.png -->
+                <!-- data\SPT_Data\Server\images\handbook\icon_info.png -->
+                <img
+                  src="../assets/spt/3.11.3/SPT_Data/Server/images/handbook\icon_info.png"
+                  width="32px" height="32px">
+                <span>Global Settings</span>
+              </button>
+              <button id="user" class="sideLink">
+                <!-- images/handbook/EfT_UI_Icons_DogTag.png -->
+                <!-- images\prestige\675864eb86778bc82004127c.png -->
+                <img
+                  src="../assets/spt/3.11.3/SPT_Data/Server/images\prestige\675864eb86778bc82004127c.png"
+                  width="32px" height="32px"> <span>User Profile</span>
+              </button>
+              <button onclick="toggleCardPanel()" id="bots" class="sideLink">
+                <!-- data/SPT_Data/Server/images/quest/icon/5d69468a86f77452aa51d79d.png -->
+                <!-- data/SPT_Data/Server/images/handbook/icon_ammo.png -->
+                <img
+                  src="../assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_ammo.png"
+                  width="32px" height="32px"> <span>Bots</span>
+              </button>
+              <button id="maps" class="sideLink">
+                <img
+                  src="../assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_maps.png"
+                  alt="" width="32px" height="32px"> <span>Maps</span>
+                <!-- <img src="data/SPT_Data/Server/images/banners/norvinskzone.png"
+              width="32px" height="32px">Maps -->
+              </button>
+              <button id="loot" class="sideLink">
+                <!-- images/hideout/icon_hideout_videocardslots.png -->
+                <!-- data/SPT_Data/Server/images/handbook/icon_money.png -->
+                <img
+                  src="../assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_money.png"
+                  width="32px" height="32px"> <span>Loot</span>
+              </button>
+              <button id="traders" class="sideLink">
+                <img
+                  src="../assets/spt/3.11.3/SPT_Data/Server/images/trader/avatar/5a7c2ebb86f7746e324a06ab.png"
+                  width="32px" height="32px"> <span>Traders</span>
+              </button>
+              <button id="quests" class="sideLink">
+                <!-- images/quest/icon/59c26dd986f77427033c3e83.png -->
+                <!-- images/handbook/icon_quest.png -->
+                <!-- data/SPT_Data/Server/images/handbook/icon_spec.png -->
+                <img
+                  src="../assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_spec.png"
+                  alt="" width="32px" height="32px"> <span>Quests</span>
+              </button>
+              <button id="hideout" class="sideLink">
+                <!-- data/SPT_Data/Server/images/handbook/icon_barter_energy.png -->
+                <img
+                  src="../assets/spt/3.11.3/SPT_Data/Server/images/handbook/icon_barter_energy.png"
+                  alt="" width="32px" height="32px"> <span>Hideout</span>
+              </button>
+            </div>
+
+            <label for="search"> Search area: (optional)
+            </label>
+
+            <textarea id="search" class="text"
+              placeholder="Find a value or property within the loaded document."></textarea>
+
+            <div class="tip muted">
+              Tip: <span class="kbd">Ctrl</span> + <span class="kbd">S</span> to
+              save,
+              <span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> to
+              run.
+            </div>
+          </div>
+        </aside>
+      </aside>
+
+      <div class="tab-wrap row">
+        <h3>HTML / CSS / JavaScript</h3>
+        <div class="tabs" id="webTabs" role="tablist">
+          <button class="tab active" role="tab" aria-selected="true"
+            tabindex="0" data-pane="html">HTML</button>
+          <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            data-pane="css">CSS</button>
+          <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            data-pane="js">JS</button>
+        </div>
+      </div>
+
+      <div id="webEditors" class="tab-container stack">
+        <!-- Temporary buttons -->
+        <div class="row">
+          <h3>HTML / CSS / JS</h3>
+          <div class="row align-c">
+            <button class="btn ok" id="runWeb">Run</button>
+            <button class="btn secondary" id="openPreview">Open
+              Preview</button>
+          </div>
+        </div>
+        <div class="editor-wrap" data-pane="html">
+          <div id="ed_html" class="editor"></div>
+        </div>
+        <div class="editor-wrap" data-pane="css" hidden>
+          <div id="ed_css" class="editor"></div>
+        </div>
+        <div class="editor-wrap" data-pane="js" hidden>
+          <div id="ed_js" class="editor"></div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h3>Preview</h3>
+        <iframe id="preview" class="preview"
+          sandbox="allow-scripts allow-same-origin allow-modals allow-forms"></iframe>
+      </div>
+
+      <div class="stack panel">
+        <h3>Output</h3>
+        <div class="row align-c">
+          <button id="runTests" class="btn warn">
+            Run with tests
+          </button>
+          <button id="clearLog" class="btn secondary">Clear log</button>
+        </div>
+        <div id="output" class="out"></div>
+      </div>
+
+
+    </main>
+
+    <footer>
+      <p>Created by: ohs-dev<br>
+        Source: <a
+          href="https://github.com/ohs-dev/spt-config.git">https://github.com/ohs-dev/spt-config.git</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="../../ace/src/ace.js"></script>
+</body>

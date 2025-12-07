@@ -83,8 +83,10 @@ export class JsonUtil {
   /**
    * From object to string
    * @param data object to turn into JSON
-   * @param replacer An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.
-   * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
+   * @param replacer An array of strings and numbers that acts as an approved 
+   *                 list for selecting the object properties that will be stringified.
+   * @param space Adds indentation, white space, and line break characters to the 
+   *              return-value JSON text to make it easier to read.
    * @returns string
    */
   public serializeAdvanced(

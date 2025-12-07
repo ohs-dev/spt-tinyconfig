@@ -1,9 +1,12 @@
 import process from 'node:process';
 //import console from 'node:console';
-import { findKey, findLocalized, readJSONFile } from './src/scripts/utils.js';
+import { Utils } from './src/scripts/utils.js';
 import { Traders } from './src/models/enums/Traders.js';
 import { EFTBot } from './src/scripts/BotClass.js';
 import type { IBotTypeSkills } from './src/models/spt/IBotType.js';
+
+// Log file
+import * as app_log from './app_log.json' with {type: 'json'}
 
 namespace App {
 
@@ -12,6 +15,7 @@ namespace App {
     args: process.argv,
     cwd: process.cwd(),
     debug: true,
+    debug_jsonFile: false,
     debug_cli: true,
     path: process.cwd(),
     assets: {
@@ -22,6 +26,16 @@ namespace App {
     spt_install_path: "",
     // User game version
     spt_install_version: ""
+    /* From `App.ts` - class App -> async load()
+    this.logger.debug(`Server: ${ProgramStatics.SPT_VERSION || this.coreConfig.sptVersion}`);
+    const nodeVersion = process.version.replace(/^v/, "");
+    if (ProgramStatics.EXPECTED_NODE && nodeVersion !== ProgramStatics.EXPECTED_NODE) {
+        this.logger.error(
+            `Node version mismatch. Required: ${ProgramStatics.EXPECTED_NODE} | Current: ${nodeVersion}`,
+        );
+        process.exit(1);
+    }
+    this.logger.debug(`Node: ${nodeVersion}`); */
   };
 
   /* #region -- DEBUG -- */
@@ -30,7 +44,7 @@ namespace App {
   if (app.debug) {
 
     // COMMAND LINE ENABLED
-    if (app.debug_cli) {
+    if (app.debug_jsonFile) {
 
       const flags = [
         "-b", //  backup file []
@@ -47,8 +61,8 @@ namespace App {
 
       try {
 
-        const out_path = "";
-        const bkup_path = "";
+        //const out_path = "";
+        //const bkup_path = "";
 
         // check for flags
         for (let i = 2; i < app.args.length - 1; i++) {
@@ -65,6 +79,7 @@ namespace App {
         }
 
         const botPath = app.args[2];
+
 
         if (botPath === undefined) {
           throw new Error('No botPath or botName');
@@ -86,40 +101,46 @@ namespace App {
         bot.Settings.difficulty.hard.Core['VisibleDistance'] = 140;
 
         console.log('bot.Settings.difficulty.hard.Core:\n', bot.Settings.difficulty.hard.Core);
-
+        process.exit(0);
       } catch (error) {
         console.log(error);
         process.exit(1);
       }
     }
 
-    // DEBUG: NO CLI
-    try {
+    // Used for debugging values in the console.
+    if (app.debug_cli) {
+      try {
 
 
+      } catch (err) {
+        //console.log('Error during property search:');
+        console.log(err);
+        process.exit(1);
+      }
 
-
-
-    } catch (err) {
-
-      //console.log('Error during property search:');
-      console.log(err);
-      process.exit(1);
     }
-  }
 
+    // End DEBUG_MODE
+    process.exit(0);
+  }
+  /* #endregion -- DEBUG -- */
+
+
+
+  // Main code branch
+  /* #region Main */
+
+
+
+
+
+
+
+  /* #endregion */
 
 }
 
-/* #endregion -- DEBUG -- */
-
-
-/* #region Main */
 
 
 
-
-
-
-
-/* #endregion */

@@ -11,6 +11,9 @@
 
 <body>
 
+  <!-- Canvas for a backdrop/background. 
+       (Not to be confused with
+       <canvas> or ::backdrop) -->
   <div class="page">
 
     <header>
@@ -164,125 +167,143 @@
 
       <section class="content stack">
 
-        <div class="title-wrap">
+        <div class="title-wrap row panel just-sb align-c">
           <h3 id="botName">Killa</h3>
-          <button class="btn action warn" id="savePreset">
-            <span class="btnFace">Save Preset</span>
-          </button>
-          <button class="btn action active" id="loadPreset">
-            <span class="btnFace">Load Preset</span>
-          </button>
-          <button class="btn action warn" id="applyChanges">
-            <span class="btnFace">Apply Changes</span>
-          </button>
-        </div>
-
-        <div class="diff-wrap row">
-          <h3>AI Difficulty</h3>
-          <div class="btn-grid">
-            <button class="btn select" id="easy">
-              <span class="btnFace">Easy</span>
+          <div class="row align-c title-grid">
+            <button class="btn action warn" id="savePreset">
+              <span class="btnFace">Save Preset</span>
             </button>
-            <button class="btn select secondary active" id="normal">
-              <span class="btnFace">Normal</span>
+            <button class="btn action" id="loadPreset">
+              <span class="btnFace">Load Preset</span>
             </button>
-            <button class="btn select secondary" id="hard">
-              <span class="btnFace">Hard</span>
+            <button class="btn action warn" id="applyChanges">
+              <span class="btnFace">Apply Changes</span>
             </button>
-            <button class="btn select secondary" id="impossible">
-              <span class="btnFace">Impossible</span>
-            </button>
+            <!-- Open -->
             <input id="openFile" type="file" accept="application/json" hidden>
+            <!-- Save -->
+            <input id="saveFile" type="file" accept="application/json" hidden>
           </div>
         </div>
 
-        <div class="tab-wrap setting-wrap row">
-          <h3>Setting</h3>
-          <div class="tab-grid tabs" id="sectionTabs" role="tablist">
+        <div class="diff-wrap row panel just-sb align-c">
+          <h3>AI Difficulty</h3>
+          <div id="difficultyTabs" class="diff-grid tabs align-c">
+            <button class="btn tab" id="easy" data-pane="easy"
+              aria-selected="false">
+              <span class="btnFace">Easy</span>
+            </button>
+            <button class="btn tab active" id="normal" data-pane="normal"
+              aria-selected="true">
+              <span class="btnFace">Normal</span>
+            </button>
+            <button class="btn tab" id="hard" data-pane="hard"
+              aria-selected="false">
+              <span class="btnFace">Hard</span>
+            </button>
+            <button class="btn tab" id="impossible" data-pane="impossible"
+              aria-selected="false">
+              <span class="btnFace">Impossible</span>
+            </button>
+          </div>
+        </div>
 
-            <button class="tab active" role="tab" aria-selected="true"
-              tabindex="0" data-pane="core">Core</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
-              data-pane="mind">Mind</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+        <div class="setting-wrap row panel just-sb">
+          <h3>Setting</h3>
+          <!-- (old) webTabs -->
+          <div id="settingTabs" class="setting-grid tabs">
+            <button class="btn tab active" aria-selected="true"
+              data-pane="core">Core</button>
+            <button class="btn tab" aria-selected="false"
               data-pane="aiming">Aiming</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
+              data-pane="mind">Mind</button>
+            <button class="btn tab" aria-selected="false"
               data-pane="look">Look</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="shoot">Shoot</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="scattering">Scattering</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="hearing">Hearing</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="boss">Boss</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="cover">Cover</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="grenade">Grenade</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="change">Change</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="move">Move</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="lay">Lay</button>
-            <button class="tab" role="tab" aria-selected="false" tabindex="-1"
+            <button class="btn tab" aria-selected="false"
               data-pane="patrol">Patrol</button>
 
           </div>
         </div>
 
-        <div class="tab-container stack">
+        <!-- tab-container -->
+        <div id="webEditors" class="stack panel">
 
-          <div class="editor-wrap" data-pane="core">
+          <!-- Category, Save / Reset buttons -->
+          <div class="ed-label row just-sb align-c">
+            <h3>Normal - Core:</h3>
+            <!-- <div id="editorLabel" class="row align-c">
+            </div> -->
+            <div class="label-grid align-c">
+              <!-- runWeb -->
+              <button class="btn action" id="runWeb">Apply</button>
+              <!-- openPreview -->
+              <button class="btn action" id="reset_ed">Reset</button>
+            </div>
+          </div>
+
+          <!-- Editors -->
+          <div class="editor-wrap" data-pane="Core">
             <div id="ed_core" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="mind" hidden>
-            <div id="ed_mind" class="editor"></div>
-          </div>
-          <div class="editor-wrap" data-pane="aiming" hidden>
+          <div class="editor-wrap" data-pane="Aiming" hidden>
             <div id="ed_aiming" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="look" hidden>
+          <div class="editor-wrap" data-pane="Mind" hidden>
+            <div id="ed_mind" class="editor"></div>
+          </div>
+          <div class="editor-wrap" data-pane="Look" hidden>
             <div id="ed_look" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="shoot" hidden>
+          <div class="editor-wrap" data-pane="Shoot" hidden>
             <div id="ed_shoot" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="scattering" hidden>
+          <div class="editor-wrap" data-pane="Scattering" hidden>
             <div id="ed_scattering" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="hearing" hidden>
+          <div class="editor-wrap" data-pane="Hearing" hidden>
             <div id="ed_hearing" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="boss" hidden>
+          <div class="editor-wrap" data-pane="Boss" hidden>
             <div id="ed_boss" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="cover" hidden>
+          <div class="editor-wrap" data-pane="Cover" hidden>
             <div id="ed_cover" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="grenade" hidden>
+          <div class="editor-wrap" data-pane="Grenade" hidden>
             <div id="ed_grenade" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="change" hidden>
+          <div class="editor-wrap" data-pane="Change" hidden>
             <div id="ed_change" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="move" hidden>
+          <div class="editor-wrap" data-pane="Move" hidden>
             <div id="ed_move" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="lay" hidden>
+          <div class="editor-wrap" data-pane="Lay" hidden>
             <div id="ed_lay" class="editor"></div>
           </div>
-          <div class="editor-wrap" data-pane="patrol" hidden>
+          <div class="editor-wrap" data-pane="Patrol" hidden>
             <div id="ed_patrol" class="editor"></div>
           </div>
 
-        </div>
-
-        <div class="stack">
-          <h3>Preview</h3>
-          <iframe id="preview" class="preview"
-            sandbox="allow-same-origin allow-modals allow-forms"></iframe>
         </div>
 
 
@@ -447,65 +468,6 @@
           </div>
         </div>
 
-        <div class="settings">
-
-          <div class="Aiming">
-            <code>
-                <textarea class="settings">
-                </textarea>   
-<!-- "AIMING_TYPE": 4,
-"ANYTIME_LIGHT_WHEN_AIM_100": 70,
-"ANY_PART_SHOOT_TIME": 5,
-"BAD_SHOOTS_MAX": 3,
-"BAD_SHOOTS_MIN": 1,
-"BASE_HIT_AFFECTION_DELAY_SEC": 0.3,
-"BASE_HIT_AFFECTION_MAX_ANG": 14,
-"BASE_HIT_AFFECTION_MIN_ANG": 28,
-"BASE_SHIEF": 0.15,
-"BASE_SHIEF_STATIONARY_GRENADE": 1.1,
-"BETTER_PRECICING_COEF": 0.9,
-"BOTTOM_COEF": 0.1,
-"BOT_MOVE_IF_DELTA": 3.01,
-"COEF_FROM_COVER": 0.45,
-"COEF_IF_MOVE": 1,
-"DAMAGE_PANIC_TIME": 11,
-"DAMAGE_TO_DISCARD_AIM_0_100": 70,
-"DANGER_UP_POINT": 1.3,
-"DIST_TO_SHOOT_NO_OFFSET": 3,
-"DIST_TO_SHOOT_TO_CENTER": 3,
-"FIRST_CONTACT_ADD_CHANCE_100": 99,
-"FIRST_CONTACT_ADD_SEC": 0.4,
-"HARD_AIM": 0.75,
-"HARD_AIM_CHANCE_100": 80,
-"MAX_AIMING_UPGRADE_BY_TIME": 0.25,
-"MAX_AIM_PRECICING": 2,
-"MAX_AIM_TIME": 1.5,
-"MAX_TIME_DISCARD_AIM_SEC": 1.2,
-"MIN_DAMAGE_TO_GET_HIT_AFFETS": 1,
-"MIN_TIME_DISCARD_AIM_SEC": 0.5,
-"NEXT_SHOT_MISS_CHANCE_100": 85,
-"NEXT_SHOT_MISS_Y_OFFSET": 0.5,
-"OFFSET_RECAL_ANYWAY_TIME": 1,
-"PANIC_ACCURATY_COEF": 1.2,
-"PANIC_COEF": 1.2,
-"PANIC_TIME": 2,
-"RECALC_DIST": 0.7,
-"RECALC_MUST_TIME": 3,
-"RECALC_SQR_DIST": 0.48999998,
-"SCATTERING_DIST_MODIF": 0.67,
-"SCATTERING_DIST_MODIF_CLOSE": 0.6,
-"SCATTERING_HAVE_DAMAGE_COEF": 2,
-"SHOOT_TO_CHANGE_PRIORITY": 5525,
-"SHPERE_FRIENDY_FIRE_SIZE": -0.1,
-"TIME_COEF_IF_MOVE": 1.1,
-"WEAPON_ROOT_OFFSET": 0.35,
-"XZ_COEF": 0.4,
-"XZ_COEF_STATIONARY_GRENADE": 0.8 -->
-                  
-                
-              </code>
-          </div>
-        </div>
 
       </section>
     </main>
@@ -519,108 +481,12 @@
 
   </div>
 
+
+  <script src="./BotConfig.js">
+  </script>
 </body>
 
-<script>
-  // src='../scripts/BotConfig.js'
 
-
-
-
-  function toggleCardPanel() {
-
-    const panel = document.querySelector('div.card_panel');
-    if (panel.style.display != 'none') {
-      panel.style.display = 'none';
-    } else {
-      panel.style.display = 'flex';
-    }
-  }
-
-
-  // toggle class
-  function toggleclass(element, classname) {
-
-    const cp = document.querySelector(element);
-    const cards = cp.children;
-    for (let i = 0; i < cards.length; i++) {
-      //console.log(cards[i]);
-      if (cards[i].classList.contains(classname)) {
-        cards[i].classList.remove(classname);
-      } else {
-        cards[i].classList.add(classname);
-      }
-    }
-  }
-
-
-  function queryAPI(query) {
-
-    console.log("Graphql query sent...");
-
-    /* GraphQL query
-    {
-      bosses {
-        name
-        id
-        imagePortraitLink
-      }
-    }
-    */
-    try {
-      const cardPanel = document.querySelector('div.card_panel');
-
-      fetch('https://api.tarkov.dev/graphql', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          query: `{bosses {id name imagePortraitLink}}`
-        })
-      }).then(r => r.json())
-        .then(data => {
-          console.log('data returned:', data);
-
-          const bossObj = data['data']['bosses'];
-          //console.log('bossObj: ', JSON.stringify(bossObj));
-
-          if (bossObj) {
-
-            // Loop through bosses returned from the api
-            for (let i = 0; i < bossObj.length - 1; i++) {
-
-              if (bossObj[i].name) {
-
-                console.log(bossObj[i].name);
-                // create new <div> element
-                const newCard = document.createElement('div');
-                // set class on new card
-                newCard.classList.add('card');
-                // create h2 and img for the card.
-                const newh2 = document.createElement('h2');
-                newh2.innerText = bossObj[i].name;
-                const newimg = document.createElement('img');
-                newimg.src = bossObj[i].imagePortraitLink;
-
-                // add h2 & img to card
-                newCard.append(newh2);
-                newCard.append(newimg);
-
-                // insert into card panel
-                cardPanel.append(newCard);
-              }
-            }
-          }
-        });
-
-    } catch (err) {
-      console.log('Error fetching query: \n', err.message);
-    }
-
-  }
-
-</script>
 
 
 </html>

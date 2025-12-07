@@ -1,8 +1,7 @@
 import { BotCommonNames } from "../models/enums/BotNames.js";
-import type { IBodyPart, IBotType, IBotTypeSkills, IDifficultySetting, IChanceEquipment, IChanceWeaponMods, IExperience, IInventoryAmmo, IInventoryEquipment, IInventoryItems, IInventoryMods, IChanceEquipmentMods, IItemGen, IItemWeights, IChanceType, IDifficultyType } from "../models/spt/IBotType.js";
+import type { IBodyPart, IBotType, IBotTypeSkills, IDifficultySetting, IDifficultyType } from "../models/spt/IBotType.js";
 import type { MinMax } from "../models/MinMax.js";
-import { readJSONFile } from "./utils.js";
-import * as NodePath from "node:path";
+import { Utils } from "./utils.js";
 
 
 export class EFTBot {
@@ -28,11 +27,11 @@ export class EFTBot {
     this._botPresetPath = path;
 
     // Data 
-    this._botPresetType = JSON.parse(readJSONFile(path)) as IBotType;
+    this._botPresetType = JSON.parse(Utils.readJSONFile(path)) as IBotType;
     this._botPrototype = structuredClone(this._botPresetType) as IBotType;
     this._settings = this._botPrototype;
 
-    // Filename & role
+    // bot name & role
     this._filename = path.slice(path.lastIndexOf('/'), path.length - 1)
     this._role = this._filename.slice(0, this._filename.lastIndexOf('.'));
     if (this._role in BotCommonNames) {

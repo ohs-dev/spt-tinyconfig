@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import fsExtra from 'fs-extra/esm';
 import { FileSystem } from './FileSystem.js';
 
-import { readJSONFile, fileExists, validateString } from './utils.js';
+//import { readJSONFile, fileExists } from './utils.js';
+import { Utils } from './utils.js'
 import { type IBotType } from '../models/spt/IBotType.js';
 import type { ILocationBase } from '../models/spt/ILocationBase.js';
 import type { ILooseLoot } from '../models/spt/ILooseLoot.js';
@@ -63,17 +64,17 @@ type NotAssignableToJson =
  * @param name {string}  name of the bot
  * @returns `IBotType`
  */
-export function getBotType(name: string, path: string, version?: string): IBotType | undefined {
+export function getBotType(path: string, name?: string, version?: string): IBotType | undefined {
 
   try {
 
-    if (validateString(name) && validateString(path)) {
+    if (Utils.fileExists(path)) {
 
-      const bot: IBotType = readJSONFile(name, path) as IBotType;
+      const bot: IBotType = Utils.readJSONFile(path) as IBotType;
       return bot;
     } else {
       throw new Error(`Error: Could not find file containing bot type data:\n
-          file path: ${path}\n bot name: ${name}.json`)
+          file path: ${path}`)
     }
     //return undefined;
   } catch (err: Error | any) {
@@ -91,20 +92,19 @@ export function getAllBotTypes(names: Array<string>, path: string): Array<IBotTy
 
   try {
 
-    if (validateString(path)) {
+    if (Utils.fileExists(path)) {
 
       // Loop through all bots in `names` param
       for (let name in names) {
 
         // Add file extension (.json) if name does not include one
         let fName = (name.includes('.json')) ? name : `${name}.json`
-        if (fileExists(path)) {
+        if (Utils.fileExists(path)) {
           // Add to array
-          bots.push(readJSONFile(name, path) as IBotType);
+          bots.push(Utils.readJSONFile(path) as IBotType);
         } else {
 
-          throw new Error(`Error: Could not find file containing bot type data:\n
-          file path: ${path}\n bot name: ${name}.json`);
+          throw new Error(`Error: Could not find file path: ${path}`);
         }
       }
       return bots;
@@ -274,8 +274,8 @@ export function getMapBase(name: string, path: string): ILocationBase | undefine
    #endregion */
 
   try {
-    if (validateString(name) && validateString(path)) {
-      const map: ILocationBase = readJSONFile(name, path) as ILocationBase;
+    if (Utils.fileExists(path)) {
+      const map: ILocationBase = Utils.readJSONFile(path) as ILocationBase;
       return map;
     } else {
       throw new Error(`Could not validate map name or path:\n name=(${name})\n path=(${path})`);
@@ -299,17 +299,17 @@ export function getMapLooseLoot(map: string, path: string, fileName?: string): I
     //    default file name = 'looseLoot.json'
     const fName = (fileName != undefined && fileName != "") ? map : "looseLoot.json";
 
-    if (validateString(path) && validateString(map)) {
+    if (Utils.fileExists(path) && Utils.fileExists(map)) {
 
-      const looseLoot: ILooseLoot = readJSONFile(fName, path) as ILooseLoot;
+      const looseLoot: ILooseLoot = Utils.readJSONFile(path) as ILooseLoot;
       return looseLoot;
     } else {
 
-      throw new Error(`Could not validate loose loot on map:(${name}):\n name=(${name})\n path=(${path})`);
+      throw new Error(`Could not validate loose loot on map:(${map})`);
     }
   } catch (error: Error | any) {
 
-    console.log(`Error loading map in: fileDb.ts - getMapBase(${name}, ${path})`);
+    console.log(`Error loading map in: fileDb.ts - getMapBase(${map}, ${path})`);
     console.log(error);
     return undefined;
   }

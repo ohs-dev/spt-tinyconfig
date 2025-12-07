@@ -3,15 +3,14 @@ import type { MinMax } from "../models/MinMax.js";
 export declare class EFTBot {
     protected readonly _botPresetType: IBotType;
     protected readonly _botPresetPath: string;
-    _botPrototype: IBotType;
-    _settings: IBotType;
-    _name: string;
-    _role: string;
-    constructor(path: string, type?: string);
+    private _botPrototype;
+    private _settings;
+    private _filename;
+    private _name;
+    private _role;
+    constructor(path: string);
     get Name(): string;
-    set Name(n: string);
     get Role(): string;
-    set Role(r: string);
     get Settings(): IBotType;
     set Settings(k: IBotType);
     /** Gets the min/max health for a EFT bot's bodypart
@@ -52,6 +51,4 @@ export declare class EFTBot {
      * */
     setDifficultySetting(diffType: keyof IDifficultyType, key: keyof IDifficultySetting): void;
 }
-export declare function isKeyOf(key: any, obj: any): any;
-export declare function isTypeOf(a: any, b: any): boolean;
 //# sourceMappingURL=BotClass.d.ts.map

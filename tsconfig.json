@@ -24,16 +24,22 @@
     // "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
+    "allowJs": true,
     "resolveJsonModule": true,
     "strict": true,
     "verbatimModuleSyntax": true,
-    //"isolatedModules": true,
-    //"skipLibCheck": true
+    "isolatedModules": true,
+    "skipLibCheck": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     //"allowImportingTsExtensions": true,
     //"emitDeclarationOnly": true,
     //"explainFiles": true
+    "paths": {
+      "app/*": ["./src/*"],
+      "models/*": ["./src/models/*"],
+      "spt/*": ["./src/models/spt/*"],
+    }
   },
   "include": [
     "./index.ts",

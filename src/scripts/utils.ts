@@ -1,45 +1,49 @@
 import * as fs from 'node:fs';
 
-/* #region JSON Read/Write */
+export namespace Utils {
 
-export function fileExists(path: string): boolean {
-  if (fs.existsSync(`${path}`)) return true;
-  else return false;
-}
+  /** Tests if a file exists at the given path.
+   * @param path {string} The relative path with filename & extension
+   * @returns boolean;
+    */
+  export function fileExists(path: string): boolean {
+    if (fs.existsSync(`${path}`)) return true;
+    else return false;
+  }
 
-/** Checks if a .json file exists and reads data from file
- * @param path {string} The file system path where the file is located.
+  /** Checks if a .json file exists and reads data from file
+ * @param path {string} The relative path with filename & extension
  */
-export function readJSONFile(filePath: string): any {
-  if (fileExists(filePath)) return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-}
+  export function readJSONFile(filePath: string): any {
+    if (fileExists(filePath)) return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  }
 
-
-/** Writes data to a .json file. Overwrites file if already exist.
+  /** Writes data to a .json file. Overwrites file if it already exists.
  * 
- * @param filepath {string} File path
+ * @param filepath {string} The relative path with filename & extension
  * @param data {string} data to write in the file.
  * @returns `boolean`
  */
-export function writeJSONFile(filepath: string, data: any): boolean {
+  export function writeJSONFile(filepath: string, data: any): boolean {
 
-  // TODO: VERIFY FILE IS NOT ALREADY BEING WRITTEN (MULTIPLE CONSECUTIVE ATTEMPTS)
-  try {
-    // Tests user has write-access
-    fs.accessSync(filepath, fs.constants.W_OK);
-    fs.writeFileSync(`${filepath}`, JSON.stringify(data), 'utf-8');
+    // TODO: VERIFY FILE IS NOT ALREADY BEING WRITTEN (MULTIPLE CONSECUTIVE ATTEMPTS)
+    try {
+      // Tests user has write-access
+      fs.accessSync(filepath, fs.constants.W_OK);
+      fs.writeFileSync(`${filepath}`, JSON.stringify(data), 'utf-8');
 
-    console.log(`Wrote data successfully to: (${filepath})`);
+      console.log(`Wrote data successfully to: (${filepath})`);
 
-    return true;
+      return true;
 
-  } catch (err: Error | any) {
-    console.log(`Error writing to .json file: ${err.message}`);
-    return false;
+    } catch (err: Error | any) {
+      console.log(`Error writing to .json file: ${err.message}`);
+      return false;
+    }
   }
+
 }
 
-/* #endregion */
 
 
 /* #region Array, object value helpers */
@@ -89,24 +93,34 @@ export function findKey(keyname: string, obj: any): any {
 
 /* #endregion */
 
-/* #region Types */
 
-type ItemDescriptionLocalized = {
-  Name: string;
-  ShortName: string;
-  Description: string;
-};
+/* #region ---  Code Examples  --- */
+
+/* ## -- Array.prototype.reduce() -- ## */
+
+
+// Adds all array elements
+const sumFE = [622, 189, 283].reduce((acc, val) =>
+  acc + val
+);
+// 1094
+
+/* From Wes Bos,  questionable? */
+const addEvenMinusOdd = [622, 189, 283].reduce((acc, val) => {
+  if (val % 2 === 0) return acc + val;
+  return acc - val;
+}, 0);
+// 150
+
+const addEvensOnly = [10, 20, 11, 3].reduce((acc, val) => {
+  if (val % 2 === 0) return acc + val;
+  return acc;
+});
+// 30
+
 
 /* #endregion */
 
 
-
-// #-----  Old PC wlan  -----#
+// -----  Old PC wlan  -----
 // realtek rtl881ce
-
-
-namespace Utils {
-  export function testUtil(): void {
-    console.log('this is a namespace function');
-  }
-}
